@@ -1,0 +1,21 @@
+td{
+    border: 1px solid black;
+    height: 100px;
+    width: 50px;
+}
+.quitar td{
+    
+    height: 20px;
+    width: 50px;
+}
+button{
+    height: 20px;
+    
+}
+[title=disco]{
+    border: 1px solid black;
+    height: 100px;
+    width: 50px;
+    background-color: black;
+    color: white;
+}
