@@ -12,16 +12,21 @@
 </head>
 
 <body>
-    <button onclick=Generar(500)>500 GB</button>
-    <button onclick=Generar(1000)>1TB</button>
-    <button onclick=Generar(2000)>2TB</button>
-    <button onclick=Generar(3000)>3TB</button>
-    <button onclick=Generar(4000)>4TB</button>
-    <button onclick=Generar(5000)>5TB</button>
-    <button onclick=Generar(6000)>6TB</button>
-    <button onclick=Generar(7000)>7TB</button>
-    <button onclick=Generar(8000)>8TB</button>
-    <button onclick=Generar(9000)>9TB</button>
+    <div id="lista_discos">
+        <ul>
+            <li><button class="hdd" onclick=Generar(500)>500 GB</button></li>
+            <li><button class="hdd" onclick=Generar(1000)>1TB</button></li>
+            <li><button class="hdd" onclick=Generar(2000)>2TB</button></li>
+            <li><button class="hdd" onclick=Generar(3000)>3TB</button></li>
+            <li><button class="hdd" onclick=Generar(4000)>4TB</button></li>
+            <li><button class="hdd" onclick=Generar(5000)>5TB</button></li>
+            <li><button class="hdd" onclick=Generar(6000)>6TB</button></li>
+            <li><button class="hdd" onclick=Generar(7000)>7TB</button></li>
+            <li><button class="hdd" onclick=Generar(8000)>8TB</button></li>
+            <li><button class="hdd" onclick=Generar(9000)>9TB</button></li>
+        </ul>
+    </div>
+
     <select name="" id="select" onchange=calcularCapacidad()>
         <option value="0">RAID 0</option>
         <option value="1">RAID 1</option>

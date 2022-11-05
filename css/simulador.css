@@ -1,25 +1,64 @@
-#tbody td{
+#tbody td {
     border: 1px solid black;
     height: 100px;
     width: 50px;
 }
-.quitar td{
-    
+
+.quitar td {
+
     height: 20px;
     width: 50px;
 }
-button{
+
+button {
     height: 20px;
-    
+
 }
-[title=disco]{
+
+#lista_discos ul {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+.hdd {
+    margin: 0 5px 10px 5px;
+    
+    display: block;
+    cursor: pointer;
+
+    width: 96px;
+    height: 98px;
+
+    font-weight: bold;
+    font-size: medium;
+    color: rgb(255, 255, 255);
+
+    padding-top: 1px;
+    padding-bottom: 15px;
+    padding-left: 1px;
+    padding-right: 1px;
+
+    background-image: url("../img/discoHDD.png");
+    background-size: 96px 98px;
+    background-repeat: no-repeat;
+
+    background-color: transparent;
+    border: none;
+}
+
+[title=disco] {
     border: 1px solid black;
     height: 100px;
     width: 50px;
     background-color: black;
     color: white;
 }
-img{
+
+img {
     height: 100px;
     width: 50px;
 }
