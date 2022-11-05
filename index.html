@@ -1,64 +1,29 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    
-    <link rel="stylesheet" href="style.css">
-    
+    <title>Inicio</title>
+
+    <!-- CSS propio -->
+    <link rel="stylesheet" href="css/base.css">
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
+        crossorigin="anonymous"></script>
+    <!-- Iconos boostrap -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
 </head>
+
 <body>
-    <button onclick=Generar(500)>500 GB</button>
-    <button onclick=Generar(1000)>1TB</button>
-    <button onclick=Generar(2000)>2TB</button>
-    <button onclick=Generar(3000)>3TB</button>
-    <button onclick=Generar(4000)>4TB</button>
-    <button onclick=Generar(5000)>5TB</button>
-    <button onclick=Generar(6000)>6TB</button>
-    <button onclick=Generar(7000)>7TB</button>
-    <button onclick=Generar(8000)>8TB</button>
-    <button onclick=Generar(9000)>9TB</button>
-    <select name="" id="select" onchange=calcularCapacidad()>
-        <option value="0">RAID 0</option>
-        <option value="1">RAID 1</option>
-        <option value="3">RAID 3</option>
-        <option value="5">RAID 5</option>
-        <option value="01">RAID 01</option>
-        <option value="10">RAID 10</option>
-    </select>
-    <table>
-        <tbody id="tbody">
-           
-                <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
-            </tbody>
-            <tfoot>
-                <tr class="quitar">
-                    <td><button onclick=quitar(0)>quitar</button></td>
-                    <td><button onclick=quitar(1)>quitar</button></td>
-                    <td><button onclick=quitar(2)>quitar</button></td>
-                    <td><button onclick=quitar(3)>quitar</button></td>
-                    <td><button onclick=quitar(4)>quitar</button></td>
-                </tr>
-            </tfoot>
-            
-        
-    </table>
-    <table>
-        <tr><td>suma:</td><td><input type="text" name="" id="suma" value=0></td></tr>
-        <tr><td>capacidad:</td><td><input type="text" id="capacidad"></td></tr>
-        <tr><td>seguridad:</td><td><input type="text" name="" id="seguridad"></td></tr>
-        <tr><td>sin usar:</td><td><input type="text" name="" id="sin usar"></td></tr>
-    </table>
-    
-    
+
+<iframe class="simulador" src="simulador.html" frameborder="0"></iframe>
+
 </body>
-<script src="script.js"></script>
+
 </html>
