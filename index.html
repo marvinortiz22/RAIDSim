@@ -7,6 +7,7 @@
     <title>Document</title>
     
     <link rel="stylesheet" href="style.css">
+    
 </head>
 <body>
     <button onclick=Generar(500)>500 GB</button>
@@ -19,6 +20,14 @@
     <button onclick=Generar(7000)>7TB</button>
     <button onclick=Generar(8000)>8TB</button>
     <button onclick=Generar(9000)>9TB</button>
+    <select name="" id="select" onchange=calcularCapacidad()>
+        <option value="0">RAID 0</option>
+        <option value="1">RAID 1</option>
+        <option value="3">RAID 3</option>
+        <option value="5">RAID 5</option>
+        <option value="01">RAID 01</option>
+        <option value="10">RAID 10</option>
+    </select>
     <table>
         <tbody id="tbody">
            
@@ -29,6 +38,8 @@
                     <td></td>
                     <td></td>
                 </tr>
+            </tbody>
+            <tfoot>
                 <tr class="quitar">
                     <td><button onclick=quitar(0)>quitar</button></td>
                     <td><button onclick=quitar(1)>quitar</button></td>
@@ -36,35 +47,18 @@
                     <td><button onclick=quitar(3)>quitar</button></td>
                     <td><button onclick=quitar(4)>quitar</button></td>
                 </tr>
+            </tfoot>
             
-        </tbody>
+        
     </table>
-    <input type="text" name="" id="input" value=0>
-</body>
-<script>   
-    let i=-1
-    var input=document.getElementById("input")
-    function Generar(capacidad){
-        if(i<4){
-            i++
-            var disco="<div id="+i+" class="+capacidad+" title='disco'>"+capacidad+"</div>"
-            var celdas=document.getElementsByTagName("td")
-            
-            
-            celdas[i].innerHTML+=disco
-            var discoActual=document.getElementById(""+i+"")
-            valor=parseInt(input.value,10)
-            valor+=parseInt(discoActual.getAttribute("class"),10)
-            input.value=valor
-        }      
-    }
-
-    function quitar(posicion){
-        var borrado=document.getElementById(""+posicion+"")
-        borrado.remove()
-        input.value-=borrado.getAttribute("class")
-        i--
-    }
+    <table>
+        <tr><td>suma:</td><td><input type="text" name="" id="suma" value=0></td></tr>
+        <tr><td>capacidad:</td><td><input type="text" id="capacidad"></td></tr>
+        <tr><td>seguridad:</td><td><input type="text" name="" id="seguridad"></td></tr>
+        <tr><td>sin usar:</td><td><input type="text" name="" id="sin usar"></td></tr>
+    </table>
     
-</script>
+    
+</body>
+<script src="script.js"></script>
 </html>
