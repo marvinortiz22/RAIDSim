@@ -4,51 +4,49 @@
 }
 
 #lista_discos ul {
+    margin: 3px;
+    padding: 3px;
+
     display: flex;
     flex-flow: row wrap;
     justify-content: center;
-    padding: 0;
-    margin: 0;
+
     list-style: none;
 }
 
-.hdd {
-    margin: 0 5px 10px 5px;
-    
-    display: block;
-    cursor: pointer;
-
+#lista_discos .hdd {
     width: 98px;
     height: 100px;
 
-    font-weight: bold;
-    font-size: medium;
-    color: rgb(255, 255, 255);
+    margin: 0 5px 10px 5px;
+    
+    border: none;
+
+    background-image: url("../img/discoHDD.png");
+    background-size: 98px 100px;
+    background-repeat: no-repeat;
+    background-color: transparent;
+
+    cursor: pointer;
 
     padding-top: 1px;
     padding-bottom: 15px;
     padding-left: 1px;
     padding-right: 1px;
 
-    background-image: url("../img/discoHDD.png");
-    background-size: 98px 100px;
-    background-repeat: no-repeat;
-
-    background-color: transparent;
-    border: none;
+    display: block;
+    
+    font-weight: bold;
+    font-size: medium;
+    color: rgb(255, 255, 255);
 }
 
 #area_nas {
-    margin: 0 auto;
-
     width: 100%;
     max-width: 877px;
     height: 684px;
 
-    padding-top: 200px;
-    padding-bottom: 68px;
-    padding-left: 168px;
-    padding-right: 68px;
+    margin: 0 auto;
 
     position: relative;
     -moz-box-sizing: border-box;
@@ -58,6 +56,105 @@
     background-image: url(../img/NAS.png);
     background-size: 100% 100%;
     background-repeat: no-repeat;
+}
+
+#area_nas:after {
+    content: "";
+    display: block;
+    padding-bottom: 34.5283%;
+}
+
+#lista_ranuras ul {
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+
+    position: absolute;
+
+    width: 100%;
+    
+    margin: 0;
+    
+    padding-top: 23.70%;
+    padding-right: 8.80%;
+    padding-bottom: 8.80%;
+    padding-left: 19.84%;
+
+    display: flex;
+    flex-flow: row;
+
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    overflow: hidden;
+
+    list-style: none;
+}
+
+#lista_ranuras .hdd {
+    width: 15.90%;
+    min-width: 7.33173%;
+    height: 100%;
+
+    margin: 0;
+    margin-right: 0.90%;
+
+    border: 1px solid transparent;
+
+    position: relative;
+    flex-shrink: 0;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+#lista_ranuras .hdd.placeholder {
+    border: 1px solid rgba(255,255,255,0.3);
+    background-color: rgba(255,255,255,0.1);
+}
+
+
+#lista_ranuras .hdd.online {
+    background-image: url(../img/hdd_introducido.jpg);
+    background-size: 100% auto;
+    background-position: center center;
+    background-repeat: no-repeat;
+    border: 0;
+
+    text-align: center;
+    font-weight: bold;
+    font-size: medium;
+    color: rgb(255, 255, 255);
+}
+
+#lista_ranuras .hdd.online span {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 30%;
+    text-align: center;
+}
+
+#lista_ranuras .hdd.online button {
+    bottom: 6px;
+    left: 0;
+    right: 0;
+
+    position: absolute;
+
+    width: 50%  ;
+    height: 22%;
+
+    cursor: pointer;
+
+    background-color: transparent;
+
+    display: block;
+    
+    font-weight: bold;
+    font-size: medium;
+    color: rgb(255, 255, 255);
 }
 
 #resultados {

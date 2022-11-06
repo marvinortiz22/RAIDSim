@@ -29,27 +29,23 @@
         </div>
     </div>
     <div id="area_nas">
-        <table>
-            <tbody id="tbody">
-
-                <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
-            </tbody>
-            <tfoot>
-                <tr class="quitar">
-                    <td><button onclick=quitar(0)>quitar</button></td>
-                    <td><button onclick=quitar(1)>quitar</button></td>
-                    <td><button onclick=quitar(2)>quitar</button></td>
-                    <td><button onclick=quitar(3)>quitar</button></td>
-                    <td><button onclick=quitar(4)>quitar</button></td>
-                </tr>
-            </tfoot>
-        </table>
+        <div id="lista_ranuras">
+            <ul>
+                <li class="hdd placeholder"></li>
+                <li class="hdd placeholder"></li>
+                <li class="hdd placeholder"></li>
+                <li class="hdd placeholder"></li>
+                <li class="hdd placeholder"></li>
+                <li class="hdd placeholder"></li>
+            </ul>
+            <ul>
+                <li class="hdd online"><span>10T</span><button onclick=quitar(0)>X</button></li>
+                <li class="hdd online"><button onclick=quitar(1)>X</button></li>
+                <li class="hdd online"><button onclick=quitar(2)>X</button></li>
+                <li class="hdd online"><button onclick=quitar(4)>X</button></li>
+                <li class="hdd online"><button onclick=quitar(6)>X</button></li>
+            </ul>
+        </div>
     </div>
 
     <div id="resultados">
