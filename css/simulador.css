@@ -1,3 +1,4 @@
+/*ZONA PARA SELECCIONAR DISCOS*/
 #area_discos {
     margin-bottom: 40px;
     padding: 10px;
@@ -41,6 +42,7 @@
     color: rgb(255, 255, 255);
 }
 
+/*ZONA PARA MOSTRAR DISCOS EN EL NAS*/
 #area_nas {
     width: 100%;
     max-width: 877px;
@@ -156,12 +158,15 @@
     color: rgb(255, 255, 255);
 }
 
+/*ZONA DE RESULTADOS*/
+
 #resultados {
     margin: 20px;
     padding: 10px;
 }
 
 
+/* BORRADOR
 [title=disco] {
     border: 1px solid black;
     height: 100px;
@@ -190,4 +195,4 @@ img {
 button {
     height: 20px;
 
-}
+}*/

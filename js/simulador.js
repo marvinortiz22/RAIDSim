@@ -5,15 +5,19 @@
     let sinUsarInput=document.getElementById("sin usar")
     let capacidadRaid=0, sumaRaid=0, seguridadRaid,sinUsarRaid
     var menor=100000
+    
     function Generar(capacidadDisco){
-        if(i<4){
+        if(i<5){
             i++
             if (capacidadDisco==500)
-                var disco="<div id="+i+" accesskey="+capacidadDisco+" title='disco' class='disco'>"+capacidadDisco+"GB</div>"
+                //var disco="<div id="+i+" accesskey="+capacidadDisco+" title='disco' class='disco'>"+capacidadDisco+"GB</div>"
+                var disco ="<li id="+i+" accesskey="+capacidadDisco+" class='hdd online'><span>"+capacidadDisco+"GB</span><button onclick=quitar("+i+")>X</button></li>"
             else
-                var disco="<div id="+i+" accesskey="+capacidadDisco+" title='disco' class='disco'>"+(capacidadDisco/1000)+"TB</div>"
-            let celdas=document.getElementsByTagName("td")
-            celdas[i].innerHTML+=disco
+                //var disco="<div id="+i+" accesskey="+capacidadDisco+" title='disco' class='disco'>"+(capacidadDisco/1000)+"TB</div>"
+                var disco ="<li id="+i+" accesskey="+capacidadDisco+" class='hdd online'><span>"+(capacidadDisco/1000)+"TB</span><button onclick=quitar("+i+")>X</button></li>"
+            let celdas=document.getElementById('lista_ranuras_online')
+            //let celdas=document.getElementsByTagName("td")
+            celdas.innerHTML+=disco
             let discoActual=document.getElementById(""+i+"")
             sumaRaid=parseInt(sumaInput.value,10)
             sumaRaid+=parseInt(discoActual.getAttribute("accesskey"),10)
