@@ -12,70 +12,75 @@
 </head>
 
 <body>
-    <div id="lista_discos">
-        <ul>
-            <li><button class="hdd" onclick=Generar(500)>500 GB</button></li>
-            <li><button class="hdd" onclick=Generar(1000)>1TB</button></li>
-            <li><button class="hdd" onclick=Generar(2000)>2TB</button></li>
-            <li><button class="hdd" onclick=Generar(3000)>3TB</button></li>
-            <li><button class="hdd" onclick=Generar(4000)>4TB</button></li>
-            <li><button class="hdd" onclick=Generar(5000)>5TB</button></li>
-            <li><button class="hdd" onclick=Generar(6000)>6TB</button></li>
-            <li><button class="hdd" onclick=Generar(7000)>7TB</button></li>
-            <li><button class="hdd" onclick=Generar(8000)>8TB</button></li>
-            <li><button class="hdd" onclick=Generar(9000)>9TB</button></li>
-        </ul>
+    <div id="area_discos">
+        <div id="lista_discos">
+            <ul>
+                <li><button class="hdd" onclick=Generar(500)>500 GB</button></li>
+                <li><button class="hdd" onclick=Generar(1000)>1TB</button></li>
+                <li><button class="hdd" onclick=Generar(2000)>2TB</button></li>
+                <li><button class="hdd" onclick=Generar(3000)>3TB</button></li>
+                <li><button class="hdd" onclick=Generar(4000)>4TB</button></li>
+                <li><button class="hdd" onclick=Generar(5000)>5TB</button></li>
+                <li><button class="hdd" onclick=Generar(6000)>6TB</button></li>
+                <li><button class="hdd" onclick=Generar(7000)>7TB</button></li>
+                <li><button class="hdd" onclick=Generar(8000)>8TB</button></li>
+                <li><button class="hdd" onclick=Generar(9000)>9TB</button></li>
+            </ul>
+        </div>
+    </div>
+    <div id="area_nas">
+        <table>
+            <tbody id="tbody">
+
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </tbody>
+            <tfoot>
+                <tr class="quitar">
+                    <td><button onclick=quitar(0)>quitar</button></td>
+                    <td><button onclick=quitar(1)>quitar</button></td>
+                    <td><button onclick=quitar(2)>quitar</button></td>
+                    <td><button onclick=quitar(3)>quitar</button></td>
+                    <td><button onclick=quitar(4)>quitar</button></td>
+                </tr>
+            </tfoot>
+        </table>
     </div>
 
-    <select name="" id="select" onchange=calcularCapacidad()>
-        <option value="0">RAID 0</option>
-        <option value="1">RAID 1</option>
-        <option value="3">RAID 3</option>
-        <option value="5">RAID 5</option>
-        <option value="01">RAID 01</option>
-        <option value="10">RAID 10</option>
-    </select>
-    <table>
-        <tbody id="tbody">
+    <div id="resultados">
+        <select name="" id="select" onchange=calcularCapacidad()>
+            <option value="0">RAID 0</option>
+            <option value="1">RAID 1</option>
+            <option value="3">RAID 3</option>
+            <option value="5">RAID 5</option>
+            <option value="01">RAID 01</option>
+            <option value="10">RAID 10</option>
+        </select>
 
+        <table>
             <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
+                <td>suma:</td>
+                <td><input type="text" name="" id="suma" value=0></td>
             </tr>
-        </tbody>
-        <tfoot>
-            <tr class="quitar">
-                <td><button onclick=quitar(0)>quitar</button></td>
-                <td><button onclick=quitar(1)>quitar</button></td>
-                <td><button onclick=quitar(2)>quitar</button></td>
-                <td><button onclick=quitar(3)>quitar</button></td>
-                <td><button onclick=quitar(4)>quitar</button></td>
+            <tr>
+                <td>capacidad:</td>
+                <td><input type="text" id="capacidad"></td>
             </tr>
-        </tfoot>
-
-
-    </table>
-    <table>
-        <tr>
-            <td>suma:</td>
-            <td><input type="text" name="" id="suma" value=0></td>
-        </tr>
-        <tr>
-            <td>capacidad:</td>
-            <td><input type="text" id="capacidad"></td>
-        </tr>
-        <tr>
-            <td>seguridad:</td>
-            <td><input type="text" name="" id="seguridad"></td>
-        </tr>
-        <tr>
-            <td>sin usar:</td>
-            <td><input type="text" name="" id="sin usar"></td>
-        </tr>
-    </table>
+            <tr>
+                <td>seguridad:</td>
+                <td><input type="text" name="" id="seguridad"></td>
+            </tr>
+            <tr>
+                <td>sin usar:</td>
+                <td><input type="text" name="" id="sin usar"></td>
+            </tr>
+        </table>
+    </div>
 </body>
 <script src="js/simulador.js"></script>
 

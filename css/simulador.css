@@ -1,18 +1,6 @@
-#tbody td {
-    border: 1px solid black;
-    height: 100px;
-    width: 50px;
-}
-
-.quitar td {
-
-    height: 20px;
-    width: 50px;
-}
-
-button {
-    height: 20px;
-
+#area_discos {
+    margin-bottom: 40px;
+    padding: 10px;
 }
 
 #lista_discos ul {
@@ -30,8 +18,8 @@ button {
     display: block;
     cursor: pointer;
 
-    width: 96px;
-    height: 98px;
+    width: 98px;
+    height: 100px;
 
     font-weight: bold;
     font-size: medium;
@@ -43,12 +31,40 @@ button {
     padding-right: 1px;
 
     background-image: url("../img/discoHDD.png");
-    background-size: 96px 98px;
+    background-size: 98px 100px;
     background-repeat: no-repeat;
 
     background-color: transparent;
     border: none;
 }
+
+#area_nas {
+    margin: 0 auto;
+
+    width: 100%;
+    max-width: 877px;
+    height: 684px;
+
+    padding-top: 200px;
+    padding-bottom: 68px;
+    padding-left: 168px;
+    padding-right: 68px;
+
+    position: relative;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+
+    background-image: url(../img/NAS.png);
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+}
+
+#resultados {
+    margin: 20px;
+    padding: 10px;
+}
+
 
 [title=disco] {
     border: 1px solid black;
@@ -61,4 +77,21 @@ button {
 img {
     height: 100px;
     width: 50px;
+}
+
+#tbody td {
+    border: 1px solid black;
+    height: 100px;
+    width: 50px;
+}
+
+.quitar td {
+
+    height: 20px;
+    width: 50px;
+}
+
+button {
+    height: 20px;
+
 }
