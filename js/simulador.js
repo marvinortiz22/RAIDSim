@@ -26,7 +26,7 @@
             sumaRaid+=parseInt(discoActual.getAttribute("accesskey"),10)
             sumaInput.value=sumaRaid
         }
-             
+         calcularCapacidad()    
     }
 
     function quitar(posicion){
@@ -35,6 +35,7 @@
         sumaRaid-=borrado.getAttribute("accesskey")
         sumaInput.value=sumaRaid
         i--
+        calcularCapacidad()
     }
 
     function calcularCapacidad(){
@@ -66,7 +67,7 @@
     }
 
     function calcularMenor(){
-        let discos=document.getElementsByClassName("disco")
+        let discos=document.getElementsByClassName("disco hdd online")
         for (let j=0;j<discos.length;j++){
             capacidadActual=parseInt(discos[j].getAttribute("accesskey"))
             if(capacidadActual<menor)
@@ -82,7 +83,7 @@
         sinUsarInput.value=0
     }
     function raid1(){
-        let discos=document.getElementsByClassName("disco")
+        let discos=document.getElementsByClassName("disco hdd online")
         capacidadRaid=calcularMenor()
         capacidadInput.value=capacidadRaid
         seguridadInput.value=capacidadRaid*discos.length-capacidadRaid
@@ -90,7 +91,7 @@
     }
 
     function raid5(){
-        let discos=document.getElementsByClassName("disco")
+        let discos=document.getElementsByClassName("disco hdd online")
         capacidadRaid=calcularMenor()*(discos.length-1)
         capacidadInput.value=capacidadRaid
         seguridadInput.value=calcularMenor()
@@ -99,7 +100,7 @@
     }
 
     function raid10(){
-        let discos=document.getElementsByClassName("disco")
+        let discos=document.getElementsByClassName("disco hdd online")
         if(discos.length%2==0){
             capacidadInput.value=calcularMenor()*(discos.length/2)
             seguridadInput.value=capacidadInput.value
