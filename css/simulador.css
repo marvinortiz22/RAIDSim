@@ -166,6 +166,21 @@
     padding: 10px;
 }
 
+/*ZONA FOOTER*/
+footer {
+	width:100%;
+	margin:1px 0;
+	padding:2em 0;
+	color:#C5C8CF;
+}
+
+footer a:link, footer a:visited{
+	color:#C5C8CF;
+}
+
+footer a:hover{
+	color: white;;
+}
 
 /* BORRADOR
 [title=disco] {
