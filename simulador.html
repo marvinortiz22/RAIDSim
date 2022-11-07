@@ -2,10 +2,16 @@
 <html lang="es">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Simulador</title>
+    <meta name="author" content="HS19011 y OC20013, grupo14RAID">
+    <meta name="copyright" content="Propietario de grupo14RAID">
+    <meta name="keywords" content="Arreglo, Disco, HDD, grupo14, RAID, grupo14RAID">
+    <meta name="description" content="En esta pagina se encuentra un simulador de arreglos RAID del grupo14RAID">
+    <meta name="robots" content="index,follow">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+    <title>Simulador del grupo14RAID </title>
 
     <!-- CSS propio -->
     <link rel="stylesheet" href="css/simulador.css">
@@ -38,16 +44,16 @@
                 <li class="hdd placeholder"></li>
                 <li class="hdd placeholder"></li>
             </ul>
-            
+
             <ul id="lista_ranuras_online">
                 <!-- aqui iran las ranuras activadas -->
             </ul>
-            
+
         </div>
     </div>
 
     <div id="resultados">
-        <select name="" id="select" onchange=calcularCapacidad()>
+        <select id="select" onchange=calcularCapacidad()>
             <option value="0">RAID 0</option>
             <option value="1">RAID 1</option>
             <option value="3">RAID 3</option>
@@ -59,7 +65,7 @@
         <table>
             <tr>
                 <td>suma:</td>
-                <td><input type="text" name="" id="suma" value=0></td>
+                <td><input type="text" id="suma" value=0></td>
             </tr>
             <tr>
                 <td>capacidad:</td>
@@ -67,15 +73,17 @@
             </tr>
             <tr>
                 <td>seguridad:</td>
-                <td><input type="text" name="" id="seguridad"></td>
+                <td><input type="text" id="seguridad"></td>
             </tr>
             <tr>
                 <td>sin usar:</td>
-                <td><input type="text" name="" id="sin usar"></td>
+                <td><input type="text" id="sin_usar"></td>
             </tr>
         </table>
     </div>
+    
+    <!-- JS propio -->
+    <script src="js/simulador.js"></script>
 </body>
-<script src="js/simulador.js"></script>
 
 </html>
