@@ -2,7 +2,7 @@
     let sumaInput=document.getElementById("suma")
     let capacidadInput=document.getElementById("capacidad")
     let seguridadInput=document.getElementById("seguridad")
-    let sinUsarInput=document.getElementById("sin usar")
+    let sinUsarInput=document.getElementById("sin_usar")
     let capacidadRaid=0, sumaRaid=0, seguridadRaid,sinUsarRaid
     var menor=100000
     
@@ -111,6 +111,4 @@
             seguridadInput.value="la cantidad debe ser par"
             sinUsarInput.value="la cantidad debe ser par"
         }
-
-        
     }
