@@ -25,15 +25,15 @@
              
     }
 
-    function quitar(posicion){
-        //Se obtiene un array de elementos que tengan por clase "disco hdd online"
-        var discosOnLine = document.getElementsByClassName("disco hdd online")
+function quitar(posicion) {
+    //Se obtiene un array de elementos que tengan por clase "disco hdd online"
+    var discosOnLine = document.getElementsByClassName("disco hdd online")
 
-        //Se almacena el elemento "disco hdd on line" que sera borrado despues
-        let discoABorrar = discosOnLine[posicion]
+    //Se almacena el elemento "disco hdd on line" que sera borrado despues
+    let discoABorrar = discosOnLine[posicion]
 
-        //Se elimina el elemento
-        discoABorrar.remove()
+    //Se elimina el elemento
+    discoABorrar.remove()
 
         //Al eliminar un disco se debe actualizar los id, tomando el "tamnaño" para realizar esto
         for (let i = 0; i < discosOnLine.length; i++) {
@@ -43,14 +43,14 @@
             //se obtiene el elemento boton que elimina un disco
             var BotonQuitar = discosOnLine[i].getElementsByTagName("button")[0]
 
-            //Se actualiza el id del boton que debe ser en realidad
-            BotonQuitar.setAttribute("onclick","quitar("+ i +")")
-        }
-
-        i--
-        
-        calcularCapacidad()
+        //Se actualiza el id del boton que debe ser en realidad
+        BotonQuitar.setAttribute("onclick", "quitar(" + i + ")")
     }
+
+    i--
+
+    calcularCapacidad()
+}
 
 
 
@@ -139,17 +139,17 @@
         sinUsarInput.value=sinUsarRaid
     }
 
-    function raid5(){
-        let discos=document.getElementsByClassName("disco hdd online")
-        
-        capacidadRaid=calcularMenor()*(discos.length-1)
-        seguridadRaid=calcularMenor()
-        sinUsarRaid=sumaRaid-capacidadRaid-seguridadRaid
-        capacidadInput.value=capacidadRaid
-        seguridadInput.value=seguridadRaid
-        sinUsarInput.value=sinUsarRaid
-        
-    }
+function raid5() {
+    let discos = document.getElementsByClassName("disco hdd online")
+
+    capacidadRaid = calcularMenor() * (discos.length - 1)
+    seguridadRaid = calcularMenor()
+    sinUsarRaid = sumaRaid - capacidadRaid - seguridadRaid
+    capacidadInput.value = capacidadRaid
+    seguridadInput.value = seguridadRaid
+    sinUsarInput.value = sinUsarRaid
+
+}
 
     function raid10(){
         let discos=document.getElementsByClassName("disco hdd online")
@@ -163,6 +163,7 @@
             sinUsarInput.value=sinUsarRaid
         }
         else{
+            //Aviso("La cantidad de discos debe ser par")
             capacidadInput.value="la cantidad debe ser par"
             seguridadInput.value="la cantidad debe ser par"
             sinUsarInput.value="la cantidad debe ser par"
@@ -282,4 +283,12 @@
             mensaje="Por favor ingrese más discos"
         }
         return esvalido
+    }
+
+    function Aviso(mensaje) {
+        Swal.fire({
+            "title": "Aviso",
+            "text": mensaje,
+            "icon": "error"
+        })
     }
