@@ -54,18 +54,11 @@
         }
 
         i--
-        suma()
+        
         calcularCapacidad()
     }
 
-    function suma(){
-        sumaRaid=0
-        let discos=document.getElementsByClassName("disco hdd online")
-        for (let j=0;j<discos.length;j++){
-            sumaRaid+=parseInt(discos[j].getAttribute("accesskey"),10)
-        }
-        sumaInput.value=sumaRaid
-    }
+
 
     function calcularCapacidad(){
         let select=document.getElementById("select")
@@ -107,7 +100,7 @@
     }
 
     function raid0(){
-        suma()
+        
         capacidadRaid=sumaRaid
         seguridadRaid=0
         sinUsarRaid=0
@@ -117,7 +110,7 @@
     }
     function raid1(){
         let discos=document.getElementsByClassName("disco hdd online")
-        suma()
+        
         capacidadRaid=calcularMenor()
         seguridadRaid=capacidadRaid*discos.length-capacidadRaid
         sinUsarRaid=sumaRaid-capacidadRaid-seguridadRaid
@@ -128,7 +121,7 @@
 
     function raid5(){
         let discos=document.getElementsByClassName("disco hdd online")
-        suma()
+        
         capacidadRaid=calcularMenor()*(discos.length-1)
         seguridadRaid=calcularMenor()
         sinUsarRaid=sumaRaid-capacidadRaid-seguridadRaid
@@ -140,7 +133,7 @@
 
     function raid10(){
         let discos=document.getElementsByClassName("disco hdd online")
-        suma()
+        
         if(discos.length%2==0){
             capacidadRaid=calcularMenor()*(discos.length/2)
             seguridadRaid=capacidadRaid
@@ -154,3 +147,4 @@
             sinUsarInput.value="la cantidad debe ser par"
         }
     }
+    
