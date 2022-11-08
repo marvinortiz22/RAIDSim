@@ -4,8 +4,8 @@
     let seguridadInput=document.getElementById("seguridad")
     let sinUsarInput=document.getElementById("sin_usar")
     let graficoDiv=document.getElementById('grafico')
-    let capacidadRaid=0, sumaRaid=0, seguridadRaid=0,sinUsarRaid=0, mensaje=""
-    crearChart()
+    let capacidadRaid=0, sumaRaid=0, seguridadRaid=0,sinUsarRaid=0, mensaje="", myChart=null
+    
     
     
     
@@ -21,9 +21,6 @@
             
             celdas.innerHTML+=disco
             calcularCapacidad()
-            if(i==1)
-                crearChart()
-            
         }
              
     }
@@ -61,7 +58,6 @@
         let select=document.getElementById("select")
         let discos=document.getElementsByClassName("disco hdd online")
         if(EsValido()){
-            
             calcularSuma()
             switch(select.value){
                 case '0':
@@ -91,7 +87,7 @@
         }
         else
             {
-                myChart.destroy()
+                
                 graficoDiv.innerHTML="<p id='parrafo'>"+mensaje+"</p>"
                 sumaRaid=0
                 capacidadRaid=0
@@ -218,6 +214,12 @@
                       display: true,
                       text: 'Chart.js Bar Chart - Stacked'
                     },
+                    legend:{
+                        display:true,
+                        labels:{
+                            color:"black"
+                        }
+                      },
                   },
                   responsive: true,
                   scales: {
@@ -228,11 +230,12 @@
                       stacked: true
                     }
                   }
+                  
                 }
                 
             }
           
-            myChart = new Chart(
+            const myChart = new Chart(
                 document.getElementById("myChart"),
                 config
               );
@@ -260,13 +263,13 @@
                 case '10':
                     if(discos.length%2==1||discos.length<4){
                         esvalido=false
-                        mensaje="la cantidad de discos para este raid debe ser par"
+                        mensaje="la cantidad de discos para este raid debe ser par y mayor o igual 4"
                         }
                     break
                 case '01':
                     if(discos.length%2==1||discos.length<4){
                         esvalido=false
-                        mensaje="la cantidad de discos para este raid debe ser par"
+                        mensaje="la cantidad de discos para este raid debe ser par y mayor o igual 4"
                     }  
                     break
                    
