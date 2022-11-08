@@ -83,10 +83,8 @@
                 break
 
         }
-            
-
         
-
+        addData()
     }
 
     function calcularMenor(){
@@ -147,4 +145,64 @@
             sinUsarInput.value="la cantidad debe ser par"
         }
     }
+    function addData() {
+        myChart.data.datasets[0].data=[capacidadRaid]
+        myChart.data.datasets[1].data=[seguridadRaid]
+        myChart.data.datasets[2].data=[sinUsarRaid]
+        myChart.update()
+    }
+    const labels = [
+        'raid A',
+        'raid B'
+      ];
     
+      const data = {
+        labels: labels,
+        datasets: [{
+            label: 'Capacidad',
+            data: [100],
+            backgroundColor: 'green',
+      borderColor: 'rgb(255, 99, 132)',
+          },
+          {
+            label: 'Copia de seguridad',
+            data: [300],
+            backgroundColor: 'yellow',
+      borderColor: 'rgb(255, 99, 132)',
+          },
+          {
+            label: 'Sin usar',
+            data: [300],
+            backgroundColor: 'red',
+      borderColor: 'rgb(255, 99, 132)',
+          }]
+      };
+    
+      const config = {
+        type: 'bar',
+        data: data,
+        options: {
+            plugins: {
+                title: {
+                  display: true,
+                  text: 'Chart.js Bar Chart - Stacked'
+                },
+              },
+              responsive: true,
+              scales: {
+                x: {
+                  stacked: true,
+                },
+                y: {
+                  stacked: true
+                }
+              }
+            }
+        }
+      
+    
+
+const myChart = new Chart(
+    document.getElementById('myChart'),
+    config
+  );
