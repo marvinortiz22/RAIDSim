@@ -10,16 +10,12 @@
         if(i<5){
             i++
             if (capacidadDisco==500)
-                //var disco="<div id="+i+" accesskey="+capacidadDisco+" title='disco' class='disco'>"+capacidadDisco+"GB</div>"
                 var disco ="<li id="+i+" accesskey="+capacidadDisco+" class='disco hdd online'><span>"+capacidadDisco+"GB</span><button onclick=quitar("+i+")>X</button></li>"
             else
-                //var disco="<div id="+i+" accesskey="+capacidadDisco+" title='disco' class='disco'>"+(capacidadDisco/1000)+"TB</div>"
                 var disco ="<li id="+i+" accesskey="+capacidadDisco+" class='disco hdd online'><span>"+(capacidadDisco/1000)+"TB</span><button onclick=quitar("+i+")>X</button></li>"
             
-            //let celdas=document.getElementsByTagName("td")
             let celdas=document.getElementById('lista_ranuras_online')
             
-            //celdas[i].innerHTML+=disco
             celdas.innerHTML+=disco
             let discoActual=document.getElementById(""+i+"")
             sumaRaid=parseInt(sumaInput.value,10)
@@ -30,10 +26,33 @@
     }
 
     function quitar(posicion){
-        let borrado=document.getElementById(""+posicion+"")
-        borrado.remove()
-        sumaRaid-=borrado.getAttribute("accesskey")
+        //Se obtiene un array de elementos que tengan por clase "disco hdd online"
+        var discosOnLine = document.getElementsByClassName("disco hdd online")
+
+        //Se almacena el elemento "disco hdd on line" que sera borrado despues
+        let discoABorrar = discosOnLine[posicion]
+
+        //Se elimina el elemento
+        discoABorrar.remove()
+
+        //Se resta el valor del disco borrado
+        sumaRaid-=discoABorrar.getAttribute("accesskey")
+
+        //Se asigna el nuevo valor al inputa "suma"
         sumaInput.value=sumaRaid
+
+        //Al eliminar un disco se debe actualizar los id, tomando el "tamnaño" para realizar esto
+        for (let i = 0; i < discosOnLine.length; i++) {
+            //se actualiza al id que debe ser en realidad
+            discosOnLine[i].id = i
+            
+            //se obtiene el elemento boton que elimina un disco
+            var BotonQuitar = discosOnLine[i].getElementsByTagName("button")[0]
+
+            //Se actualiza el id del boton que debe ser en realidad
+            BotonQuitar.setAttribute("onclick","quitar("+ i +")")
+        }
+
         i--
         calcularCapacidad()
     }
