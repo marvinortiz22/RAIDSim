@@ -3,8 +3,11 @@
     let capacidadInput=document.getElementById("capacidad")
     let seguridadInput=document.getElementById("seguridad")
     let sinUsarInput=document.getElementById("sin_usar")
-    let capacidadRaid=0, sumaRaid=0, seguridadRaid,sinUsarRaid
-    var menor=100000
+    let graficoDiv=document.getElementById('grafico')
+    let capacidadRaid=0, sumaRaid=0, seguridadRaid=0,sinUsarRaid=0, mensaje=""
+    crearChart()
+    
+    
     
     function Generar(capacidadDisco){
         if(i<5){
@@ -17,12 +20,12 @@
             let celdas=document.getElementById('lista_ranuras_online')
             
             celdas.innerHTML+=disco
-            let discoActual=document.getElementById(""+i+"")
-            sumaRaid=parseInt(sumaInput.value,10)
-            sumaRaid+=parseInt(discoActual.getAttribute("accesskey"),10)
-            sumaInput.value=sumaRaid
+            calcularCapacidad()
+            if(i==1)
+                crearChart()
+            
         }
-         calcularCapacidad()    
+             
     }
 
     function quitar(posicion){
@@ -34,12 +37,6 @@
 
         //Se elimina el elemento
         discoABorrar.remove()
-
-        //Se resta el valor del disco borrado
-        sumaRaid-=discoABorrar.getAttribute("accesskey")
-
-        //Se asigna el nuevo valor al inputa "suma"
-        sumaInput.value=sumaRaid
 
         //Al eliminar un disco se debe actualizar los id, tomando el "tamnaño" para realizar esto
         for (let i = 0; i < discosOnLine.length; i++) {
@@ -62,32 +59,54 @@
 
     function calcularCapacidad(){
         let select=document.getElementById("select")
-        switch(select.value){
-            case '0':
-                raid0()
-                break
-            case '1':
-                raid1()
-                break
-            case '3':
-                raid5()
-                break
-            case '5':
-                raid5()
-                break
-            case '10':
-                raid10()
-                break
-            case '01':
-                raid10()
-                break
-
+        let discos=document.getElementsByClassName("disco hdd online")
+        if(EsValido()){
+            
+            calcularSuma()
+            switch(select.value){
+                case '0':
+                    raid0()
+                    break
+                case '1':
+                    raid1()
+                    break
+                case '3':
+                    raid5()
+                    break
+                case '5':
+                    raid5()
+                    break
+                case '10':
+                    raid10()
+                    break
+                case '01':
+                    raid10()
+                    break
+                   
+            }
+                if(myChart)
+                    addData()
+                else
+                    crearChart()
         }
-        
-        addData()
+        else
+            {
+                myChart.destroy()
+                graficoDiv.innerHTML="<p id='parrafo'>"+mensaje+"</p>"
+                sumaRaid=0
+                capacidadRaid=0
+                seguridadRaid=0
+                sinUsarRaid=0 
+                sumaInput.value=sumaRaid
+                capacidadInput.value=capacidadRaid
+                seguridadInput.value=seguridadRaid
+                sinUsarInput.value=sinUsarRaid   
+            }
+            
     }
 
     function calcularMenor(){
+        let menor=100000
         let discos=document.getElementsByClassName("disco hdd online")
         for (let j=0;j<discos.length;j++){
             capacidadActual=parseInt(discos[j].getAttribute("accesskey"))
@@ -95,6 +114,14 @@
                 menor=capacidadActual
         }
         return menor
+    }
+    function calcularSuma(){
+        let discos=document.getElementsByClassName("disco hdd online")
+        sumaRaid=0
+        for(let j=0;j<discos.length;j++){
+            sumaRaid+=parseInt(discos[j].getAttribute("accesskey"),10)
+        }
+        sumaInput.value=sumaRaid
     }
 
     function raid0(){
@@ -108,7 +135,6 @@
     }
     function raid1(){
         let discos=document.getElementsByClassName("disco hdd online")
-        
         capacidadRaid=calcularMenor()
         seguridadRaid=capacidadRaid*discos.length-capacidadRaid
         sinUsarRaid=sumaRaid-capacidadRaid-seguridadRaid
@@ -136,6 +162,7 @@
             capacidadRaid=calcularMenor()*(discos.length/2)
             seguridadRaid=capacidadRaid
             sinUsarRaid=sumaRaid-capacidadRaid-seguridadRaid
+            capacidadInput.value=capacidadRaid
             seguridadInput.value=seguridadRaid
             sinUsarInput.value=sinUsarRaid
         }
@@ -151,58 +178,105 @@
         myChart.data.datasets[2].data=[sinUsarRaid]
         myChart.update()
     }
-    const labels = [
-        'raid A',
-        'raid B'
-      ];
-    
-      const data = {
-        labels: labels,
-        datasets: [{
-            label: 'Capacidad',
-            data: [100],
-            backgroundColor: 'green',
-      borderColor: 'rgb(255, 99, 132)',
-          },
-          {
-            label: 'Copia de seguridad',
-            data: [300],
-            backgroundColor: 'yellow',
-      borderColor: 'rgb(255, 99, 132)',
-          },
-          {
-            label: 'Sin usar',
-            data: [300],
-            backgroundColor: 'red',
-      borderColor: 'rgb(255, 99, 132)',
-          }]
-      };
-    
-      const config = {
-        type: 'bar',
-        data: data,
-        options: {
-            plugins: {
-                title: {
-                  display: true,
-                  text: 'Chart.js Bar Chart - Stacked'
-                },
-              },
-              responsive: true,
-              scales: {
-                x: {
-                  stacked: true,
-                },
-                y: {
-                  stacked: true
-                }
-              }
-            }
-        }
-      
-    
 
-const myChart = new Chart(
-    document.getElementById('myChart'),
-    config
-  );
+    function crearChart(){
+        
+        graficoDiv.innerHTML="<canvas id='myChart'></canvas>"
+        const labels = [
+            'raid A',
+            'raid B'
+          ];
+        
+          const data = {
+            labels: labels,
+            datasets: [{
+                label: 'Capacidad',
+                data: [capacidadRaid],
+                backgroundColor: 'green',
+          borderColor: 'rgb(255, 99, 132)',
+              },
+              {
+                label: 'Copia de seguridad',
+                data: [seguridadRaid],
+                backgroundColor: 'yellow',
+          borderColor: 'rgb(255, 99, 132)',
+              },
+              {
+                label: 'Sin usar',
+                data: [sinUsarRaid],
+                backgroundColor: 'red',
+          borderColor: 'rgb(255, 99, 132)',
+              }]
+          };
+        
+          const config = {
+            type: 'bar',
+            data: data,
+            options: {
+                plugins: {
+                    title: {
+                      display: true,
+                      text: 'Chart.js Bar Chart - Stacked'
+                    },
+                  },
+                  responsive: true,
+                  scales: {
+                    x: {
+                      stacked: true,
+                    },
+                    y: {
+                      stacked: true
+                    }
+                  }
+                }
+                
+            }
+          
+            myChart = new Chart(
+                document.getElementById("myChart"),
+                config
+              );
+    
+    
+    }
+    function EsValido(){
+        let esvalido=true
+        let discos=document.getElementsByClassName("disco hdd online")
+        if(discos.length>1){
+            switch(select.value){
+                case '3':
+                    if(discos.length<3){
+                        esvalido=false
+                        mensaje="Este raid necesita 3 discos o más"
+                    }
+                    
+                    break
+                case '5':
+                    if(discos.length<3){
+                        esvalido=false
+                        mensaje="Este raid necesita 3 discos o más"
+                    }
+                    break
+                case '10':
+                    if(discos.length%2==1||discos.length<4){
+                        esvalido=false
+                        mensaje="la cantidad de discos para este raid debe ser par"
+                        }
+                    break
+                case '01':
+                    if(discos.length%2==1||discos.length<4){
+                        esvalido=false
+                        mensaje="la cantidad de discos para este raid debe ser par"
+                    }  
+                    break
+                   
+            }
+        
+            
+        }
+        else{
+            esvalido=false
+            mensaje="Por favor ingrese más discos"
+        }
+        return esvalido
+    }
