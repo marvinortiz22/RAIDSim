@@ -54,7 +54,17 @@
         }
 
         i--
+        suma()
         calcularCapacidad()
+    }
+
+    function suma(){
+        sumaRaid=0
+        let discos=document.getElementsByClassName("disco hdd online")
+        for (let j=0;j<discos.length;j++){
+            sumaRaid+=parseInt(discos[j].getAttribute("accesskey"),10)
+        }
+        sumaInput.value=sumaRaid
     }
 
     function calcularCapacidad(){
@@ -67,6 +77,7 @@
                 raid1()
                 break
             case '3':
+                raid5()
                 break
             case '5':
                 raid5()
@@ -96,34 +107,46 @@
     }
 
     function raid0(){
+        suma()
         capacidadRaid=sumaRaid
+        seguridadRaid=0
+        sinUsarRaid=0
         capacidadInput.value=capacidadRaid
         seguridadInput.value=0
         sinUsarInput.value=0
     }
     function raid1(){
         let discos=document.getElementsByClassName("disco hdd online")
+        suma()
         capacidadRaid=calcularMenor()
+        seguridadRaid=capacidadRaid*discos.length-capacidadRaid
+        sinUsarRaid=sumaRaid-capacidadRaid-seguridadRaid
         capacidadInput.value=capacidadRaid
-        seguridadInput.value=capacidadRaid*discos.length-capacidadRaid
-        sinUsarInput.value=sumaRaid-capacidadInput.value-seguridadInput.value
+        seguridadInput.value=seguridadRaid
+        sinUsarInput.value=sinUsarRaid
     }
 
     function raid5(){
         let discos=document.getElementsByClassName("disco hdd online")
+        suma()
         capacidadRaid=calcularMenor()*(discos.length-1)
+        seguridadRaid=calcularMenor()
+        sinUsarRaid=sumaRaid-capacidadRaid-seguridadRaid
         capacidadInput.value=capacidadRaid
-        seguridadInput.value=calcularMenor()
-        sinUsarInput.value=sumaRaid-capacidadInput.value-seguridadInput.value
+        seguridadInput.value=seguridadRaid
+        sinUsarInput.value=sinUsarRaid
         
     }
 
     function raid10(){
         let discos=document.getElementsByClassName("disco hdd online")
+        suma()
         if(discos.length%2==0){
-            capacidadInput.value=calcularMenor()*(discos.length/2)
-            seguridadInput.value=capacidadInput.value
-            sinUsarInput.value=sumaRaid-capacidadInput.value-seguridadInput.value
+            capacidadRaid=calcularMenor()*(discos.length/2)
+            seguridadRaid=capacidadRaid
+            sinUsarRaid=sumaRaid-capacidadRaid-seguridadRaid
+            seguridadInput.value=seguridadRaid
+            sinUsarInput.value=sinUsarRaid
         }
         else{
             capacidadInput.value="la cantidad debe ser par"
