@@ -79,7 +79,15 @@
                 </div>
 
                 <div id="resultados" class="m-4 pt-4">
-                    <select id="select" onchange=calcularCapacidad()>
+                    <select id="select1" onchange=cambioSelect(id)>
+                        <option value="0">RAID 0</option>
+                        <option value="1">RAID 1</option>
+                        <option value="3">RAID 3</option>
+                        <option value="5">RAID 5</option>
+                        <option value="01">RAID 01</option>
+                        <option value="10">RAID 10</option>
+                    </select>
+                    <select id="select2" onchange=cambioSelect(id)>
                         <option value="0">RAID 0</option>
                         <option value="1">RAID 1</option>
                         <option value="3">RAID 3</option>
@@ -106,6 +114,25 @@
                             <td><input type="text" id="sin_usar"></td>
                         </tr>
                     </table>
+                    <p>---------------</p>
+                    <table>
+                        <tr>
+                            <td>suma:</td>
+                            <td><input type="text" id="suma2" value=0></td>
+                        </tr>
+                        <tr>
+                            <td>capacidad:</td>
+                            <td><input type="text" id="capacidad2"></td>
+                        </tr>
+                        <tr>
+                            <td>seguridad:</td>
+                            <td><input type="text" id="seguridad2"></td>
+                        </tr>
+                        <tr>
+                            <td>sin usar:</td>
+                            <td><input type="text" id="sin_usar2"></td>
+                        </tr>
+                    </table>
                 </div>
             </div>
         </section>
@@ -115,6 +142,11 @@
             
             
           </div>
+          <div id="grafico2" style="width: 500px;height: 500px;">
+            
+            
+            
+        </div>
     </div>
     <div id="grafico" style="width: 500px;height: 500px;">
         <canvas id="myChart"></canvas>

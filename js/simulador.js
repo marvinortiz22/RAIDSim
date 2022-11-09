@@ -4,8 +4,17 @@
     let seguridadInput=document.getElementById("seguridad")
     let sinUsarInput=document.getElementById("sin_usar")
     let graficoDiv=document.getElementById('grafico')
-    let capacidadRaid=0, sumaRaid=0, seguridadRaid=0,sinUsarRaid=0, mensaje="", myChart=null //a
-    
+    let graficoDiv2=document.getElementById('grafico2')
+    let sumaInput2=document.getElementById("suma2")
+    let capacidadInput2=document.getElementById("capacidad2")
+    let seguridadInput2=document.getElementById("seguridad2")
+    let sinUsarInput2=document.getElementById("sin_usar2")
+    let capacidadRaid=0, sumaRaid=0, seguridadRaid=0,sinUsarRaid=0, mensaje="", myChart1=null,myChart2=null
+    let capacidadRaid2=0, seguridadRaid2=0,sinUsarRaid2=0
+    let select=document.getElementById("select1")
+    let select2=document.getElementById("select2")
+
+
     
     
     
@@ -20,7 +29,8 @@
             let celdas=document.getElementById('lista_ranuras_online')
             
             celdas.innerHTML+=disco
-            calcularCapacidad()
+            calcularCapacidad(1,select,capacidadRaid, seguridadRaid,sinUsarRaid,sumaInput,capacidadInput,seguridadInput,sinUsarInput)
+            calcularCapacidad(2,select2,capacidadRaid2, seguridadRaid2,sinUsarRaid2,sumaInput2,capacidadInput2,seguridadInput2,sinUsarInput2)
         }
              
     }
@@ -48,54 +58,83 @@ function quitar(posicion) {
     }
 
     i--
+    let select=document.getElementById("select1")
+    calcularCapacidad(1,select,capacidadRaid, seguridadRaid,sinUsarRaid,sumaInput,capacidadInput,seguridadInput,sinUsarInput)
+    calcularCapacidad(2,select2,capacidadRaid2, seguridadRaid2,sinUsarRaid2,sumaInput2,capacidadInput2,seguridadInput2,sinUsarInput2)
+}   
 
-    calcularCapacidad()
-}
+    function cambioSelect(id){
+        let select=document.getElementById(""+id+"")
+        if (id=="select1")
+            calcularCapacidad(1,select,capacidadRaid, seguridadRaid,sinUsarRaid,sumaInput,capacidadInput,seguridadInput,sinUsarInput)
+        else
+            calcularCapacidad(2,select2,capacidadRaid2, seguridadRaid2,sinUsarRaid2,sumaInput2,capacidadInput2,seguridadInput2,sinUsarInput2)
+    }
 
-
-
-    function calcularCapacidad(){
-        let select=document.getElementById("select")
+    function calcularCapacidad(k,select,capacidadRaid, seguridadRaid,sinUsarRaid,sumaInput,capacidadInput,seguridadInput,sinUsarInput){
         let discos=document.getElementsByClassName("disco hdd online")
-        if(EsValido()){
+        if(EsValido(select)){
             calcularSuma()
             switch(select.value){
                 case '0':
-                    raid0()
-                    break
+                    capacidadRaid=sumaRaid
+                    seguridadRaid=0   
+                    sinUsarRaid=sumaRaid-capacidadRaid-seguridadRaid                 
+                    break  
                 case '1':
-                    raid1()
+                    capacidadRaid=calcularMenor()
+                    seguridadRaid=capacidadRaid*discos.length-capacidadRaid
+                    sinUsarRaid=sumaRaid-capacidadRaid-seguridadRaid                    
                     break
                 case '3':
-                    raid5()
+                    capacidadRaid = calcularMenor() * (discos.length - 1)
+                    seguridadRaid = calcularMenor()
+                    sinUsarRaid = sumaRaid - capacidadRaid - seguridadRaid
                     break
                 case '5':
-                    raid5()
+                    capacidadRaid = calcularMenor() * (discos.length - 1)
+                    seguridadRaid = calcularMenor()
+                    sinUsarRaid = sumaRaid - capacidadRaid - seguridadRaid                    
                     break
                 case '10':
-                    raid10()
+                    capacidadRaid=calcularMenor()*(discos.length/2)
+                    seguridadRaid=capacidadRaid 
+                    sinUsarRaid=sumaRaid-capacidadRaid-seguridadRaid                   
                     break
                 case '01':
-                    raid10()
+                    capacidadRaid=calcularMenor()*(discos.length/2)
+                    seguridadRaid=capacidadRaid
+                    sinUsarRaid=sumaRaid-capacidadRaid-seguridadRaid                   
                     break
                    
             }
-                if(myChart)
-                    addData()
+            if(k==1){
+                if(myChart1)
+                    addData(myChart1,capacidadRaid,seguridadRaid,sinUsarRaid)
                 else
-                    crearChart()
+                    crearChart(1,capacidadRaid,seguridadRaid,sinUsarRaid)
+            }
+            else{
+                if(myChart2&&k==2)
+                addData(myChart2,capacidadRaid,seguridadRaid,sinUsarRaid)
+            else
+                crearChart(2,capacidadRaid,seguridadRaid,sinUsarRaid)
             
+            }
+               
         }
         else
             {
                 //Aviso(mensaje)
-                graficoDiv.innerHTML="<p id='parrafo'>"+mensaje+"</p>"
+                if(k==1)
+                    graficoDiv.innerHTML="<p id='parrafo'>"+mensaje+"</p>"
+                else
+                    graficoDiv2.innerHTML="<p id='parrafo'>"+mensaje+"</p>"
                 sumaRaid=0
                 capacidadRaid=0
                 seguridadRaid=0
                 sinUsarRaid=0 
             }
-            sinUsarRaid=sumaRaid-capacidadRaid-seguridadRaid
             sumaInput.value=sumaRaid
             capacidadInput.value=capacidadRaid
             seguridadInput.value=seguridadRaid
@@ -122,42 +161,22 @@ function quitar(posicion) {
         sumaInput.value=sumaRaid
     }
 
-    function raid0(){
-        capacidadRaid=sumaRaid
-        seguridadRaid=0
-    }
-    function raid1(){
-        let discos=document.getElementsByClassName("disco hdd online")
-        capacidadRaid=calcularMenor()
-        seguridadRaid=capacidadRaid*discos.length-capacidadRaid
-    }
-
-function raid5() {
-    let discos = document.getElementsByClassName("disco hdd online")
-
-    capacidadRaid = calcularMenor() * (discos.length - 1)
-    seguridadRaid = calcularMenor()
-    sinUsarRaid = sumaRaid - capacidadRaid - seguridadRaid
-}
-
-    function raid10(){
-        let discos=document.getElementsByClassName("disco hdd online")
-        capacidadRaid=calcularMenor()*(discos.length/2)
-        seguridadRaid=capacidadRaid       
-    }
-    function addData() {
+    function addData(myChart,capacidadRaid,seguridadRaid,sinUsarRaid) {
         myChart.data.datasets[0].data=[capacidadRaid]
         myChart.data.datasets[1].data=[seguridadRaid]
         myChart.data.datasets[2].data=[sinUsarRaid]
         myChart.update()
     }
 
-    function crearChart(){
+    function crearChart(k,capacidadRaid,seguridadRaid,sinUsarRaid){
         
-        graficoDiv.innerHTML="<canvas id='myChart'></canvas>"
+        if(k==1)
+            graficoDiv.innerHTML="<canvas id='myChart"+k+"'></canvas>"
+        else
+            graficoDiv2.innerHTML="<canvas id='myChart"+k+"'></canvas>"
+
         const labels = [
-            'raid A',
-            'raid B'
+            'raid A'
           ];
         
           const data = {
@@ -213,13 +232,13 @@ function raid5() {
             }
           
             const myChart = new Chart(
-                document.getElementById("myChart"),
+                document.getElementById("myChart"+k+""),
                 config
               );
     
     
     }
-    function EsValido(){
+    function EsValido(select){
         let esvalido=true
         let discos=document.getElementsByClassName("disco hdd online")
         if(discos.length>1){
@@ -258,6 +277,7 @@ function raid5() {
             esvalido=false
             mensaje="Por favor ingrese más discos"
         }
+        
         return esvalido
     }
 
@@ -268,3 +288,4 @@ function raid5() {
             "icon": "error"
         })
     }
+    
