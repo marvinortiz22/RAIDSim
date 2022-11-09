@@ -4,7 +4,7 @@
     let seguridadInput=document.getElementById("seguridad")
     let sinUsarInput=document.getElementById("sin_usar")
     let graficoDiv=document.getElementById('grafico')
-    let capacidadRaid=0, sumaRaid=0, seguridadRaid=0,sinUsarRaid=0, mensaje="", myChart=null
+    let capacidadRaid=0, sumaRaid=0, seguridadRaid=0,sinUsarRaid=0, mensaje="", myChart=null //a
     
     
     
@@ -84,20 +84,22 @@ function quitar(posicion) {
                     addData()
                 else
                     crearChart()
+            
         }
         else
             {
-                
+                //Aviso(mensaje)
                 graficoDiv.innerHTML="<p id='parrafo'>"+mensaje+"</p>"
                 sumaRaid=0
                 capacidadRaid=0
                 seguridadRaid=0
                 sinUsarRaid=0 
-                sumaInput.value=sumaRaid
-                capacidadInput.value=capacidadRaid
-                seguridadInput.value=seguridadRaid
-                sinUsarInput.value=sinUsarRaid   
             }
+            sinUsarRaid=sumaRaid-capacidadRaid-seguridadRaid
+            sumaInput.value=sumaRaid
+            capacidadInput.value=capacidadRaid
+            seguridadInput.value=seguridadRaid
+            sinUsarInput.value=sinUsarRaid
             
     }
 
@@ -121,22 +123,13 @@ function quitar(posicion) {
     }
 
     function raid0(){
-        
         capacidadRaid=sumaRaid
         seguridadRaid=0
-        sinUsarRaid=0
-        capacidadInput.value=capacidadRaid
-        seguridadInput.value=0
-        sinUsarInput.value=0
     }
     function raid1(){
         let discos=document.getElementsByClassName("disco hdd online")
         capacidadRaid=calcularMenor()
         seguridadRaid=capacidadRaid*discos.length-capacidadRaid
-        sinUsarRaid=sumaRaid-capacidadRaid-seguridadRaid
-        capacidadInput.value=capacidadRaid
-        seguridadInput.value=seguridadRaid
-        sinUsarInput.value=sinUsarRaid
     }
 
 function raid5() {
@@ -145,29 +138,12 @@ function raid5() {
     capacidadRaid = calcularMenor() * (discos.length - 1)
     seguridadRaid = calcularMenor()
     sinUsarRaid = sumaRaid - capacidadRaid - seguridadRaid
-    capacidadInput.value = capacidadRaid
-    seguridadInput.value = seguridadRaid
-    sinUsarInput.value = sinUsarRaid
-
 }
 
     function raid10(){
         let discos=document.getElementsByClassName("disco hdd online")
-        
-        if(discos.length%2==0){
-            capacidadRaid=calcularMenor()*(discos.length/2)
-            seguridadRaid=capacidadRaid
-            sinUsarRaid=sumaRaid-capacidadRaid-seguridadRaid
-            capacidadInput.value=capacidadRaid
-            seguridadInput.value=seguridadRaid
-            sinUsarInput.value=sinUsarRaid
-        }
-        else{
-            //Aviso("La cantidad de discos debe ser par")
-            capacidadInput.value="la cantidad debe ser par"
-            seguridadInput.value="la cantidad debe ser par"
-            sinUsarInput.value="la cantidad debe ser par"
-        }
+        capacidadRaid=calcularMenor()*(discos.length/2)
+        seguridadRaid=capacidadRaid       
     }
     function addData() {
         myChart.data.datasets[0].data=[capacidadRaid]
@@ -196,14 +172,14 @@ function raid5() {
                 label: 'Copia de seguridad',
                 data: [seguridadRaid],
                 backgroundColor: 'yellow',
-          borderColor: 'rgb(255, 99, 132)',
-              },
+                borderColor: 'rgb(255, 99, 132)',
+            },
               {
                 label: 'Sin usar',
                 data: [sinUsarRaid],
                 backgroundColor: 'red',
-          borderColor: 'rgb(255, 99, 132)',
-              }]
+                borderColor: 'rgb(255, 99, 132)',
+            }]
           };
         
           const config = {
