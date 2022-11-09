@@ -208,7 +208,7 @@ function quitar(posicion) {
                 plugins: {
                     title: {
                       display: true,
-                      text: 'Chart.js Bar Chart - Stacked'
+                      
                     },
                     legend:{
                         display:true,
@@ -218,6 +218,7 @@ function quitar(posicion) {
                       },
                   },
                   responsive: true,
+                  indexAxis:'y',
                   scales: {
                     x: {
                       stacked: true,
@@ -226,6 +227,7 @@ function quitar(posicion) {
                       stacked: true
                     }
                   }
+                 
                   
                 }
                 
