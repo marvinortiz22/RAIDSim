@@ -110,15 +110,15 @@ function quitar(posicion) {
             }
             if(k==1){
                 if(myChart1)
-                    addData(myChart1,capacidadRaid,seguridadRaid,sinUsarRaid)
+                    addDataPastel(myChart1,capacidadRaid,seguridadRaid,sinUsarRaid)
                 else
-                    crearChart(1,capacidadRaid,seguridadRaid,sinUsarRaid)
+                    crearChartPastel(1,capacidadRaid,seguridadRaid,sinUsarRaid)
             }
             else{
                 if(myChart2&&k==2)
-                addData(myChart2,capacidadRaid,seguridadRaid,sinUsarRaid)
+                addDataPastel(myChart2,capacidadRaid,seguridadRaid,sinUsarRaid)
             else
-                crearChart(2,capacidadRaid,seguridadRaid,sinUsarRaid)
+                crearChartPastel(2,capacidadRaid,seguridadRaid,sinUsarRaid)
             
             }
                
@@ -161,14 +161,21 @@ function quitar(posicion) {
         sumaInput.value=sumaRaid
     }
 
-    function addData(myChart,capacidadRaid,seguridadRaid,sinUsarRaid) {
+    //actualiza barras
+    function addDataBarra(myChart,capacidadRaid,seguridadRaid,sinUsarRaid) {
         myChart.data.datasets[0].data=[capacidadRaid]
         myChart.data.datasets[1].data=[seguridadRaid]
         myChart.data.datasets[2].data=[sinUsarRaid]
         myChart.update()
     }
 
-    function crearChart(k,capacidadRaid,seguridadRaid,sinUsarRaid){
+    //actualiza pastel
+    function addDataPastel(myChart,capacidadRaid,seguridadRaid,sinUsarRaid) {
+        myChart.data.datasets[0].data=[capacidadRaid,seguridadRaid,sinUsarRaid]
+        myChart.update()
+    }
+
+    function crearChartBarras(k,capacidadRaid,seguridadRaid,sinUsarRaid){
         
         if(k==1)
             graficoDiv.innerHTML="<canvas id='myChart"+k+"'></canvas>"
@@ -232,6 +239,43 @@ function quitar(posicion) {
                 }
                 
             }
+          
+            const myChart = new Chart(
+                document.getElementById("myChart"+k+""),
+                config
+              );
+    
+    
+    }
+    function crearChartPastel(k,capacidadRaid,seguridadRaid,sinUsarRaid){
+        
+        if(k==1)
+            graficoDiv.innerHTML="<canvas id='myChart"+k+"'></canvas>"
+        else
+            graficoDiv2.innerHTML="<canvas id='myChart"+k+"'></canvas>"
+
+            const data = {
+                labels: [
+                  'capacidad',
+                  'seguridad',
+                  'sin usar'
+                ],
+                datasets: [{
+                  label: 'My First Dataset',
+                  data: [capacidadRaid,seguridadRaid,sinUsarRaid],
+                  backgroundColor: [
+                    'green',
+                    'yellow',
+                    'gray'
+                  ],
+                  hoverOffset: 4
+                }]
+              };
+        
+              const config = {
+                type: 'pie',
+                data: data,
+              };
           
             const myChart = new Chart(
                 document.getElementById("myChart"+k+""),
