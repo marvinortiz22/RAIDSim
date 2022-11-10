@@ -14,13 +14,14 @@
     <title>Simulador del grupo16RAID </title>
 
     <!-- CSS propio -->
-    <link rel="stylesheet" href="css/simulador.css">
+    
     <!-- CSS only -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
     <!-- Iconos boostrap -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="css/pagina2.css">
 </head>
 
 <body>
@@ -31,22 +32,26 @@
             </a>
         </nav>
     </header>
-    <style>
-        td {
-    border: 1px solid black;
-    height: 25px;
-    width: 100px;
-}
-    </style>
+    <a href="index.html"><button>Ver simulación de capacidades</button></a>
+    <select name="" id="select" onchange=limpiarRaid()>
+        <option value="0">raid 0</option>
+        <option value="1">raid 1</option>
+        <option value="3">raid 3</option>
+        <option value="5">raid 5</option>
+        <option value="10">raid 10</option>
+        <option value="01">raid 01</option>
+    </select>
+    <button onclick=ubicarCelda()>Agregar dato</button>
     <table>
-        <tr><td></td><td></td><td></td><td></td></tr>
-        <tr><td></td><td></td><td></td><td></td></tr>
-        <tr><td></td><td></td><td></td><td></td></tr>
-        <tr><td></td><td></td><td></td><td></td></tr>
-        <tr><td></td><td></td><td></td><td></td></tr>
-        <tr><td></td><td></td><td></td><td></td></tr>
+        <tr><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+        <tr><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+        <tr><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+        <tr><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+        <tr><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+        <tr><td></td><td></td><td></td><td></td><td></td><td></td></tr>
     </table>
     
 </body>
+<script src="js/pagina2.js"></script>
 
 </html>

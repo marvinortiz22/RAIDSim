@@ -1,4 +1,4 @@
-    let i=-1
+    let fila=-1
     let sumaInput=document.getElementById("suma")
     let capacidadInput=document.getElementById("capacidad")
     let seguridadInput=document.getElementById("seguridad")
@@ -19,12 +19,12 @@
     
     
     function Generar(capacidadDisco){
-        if(i<5){
-            i++
+        if(fila<5){
+            fila++
             if (capacidadDisco==500)
-                var disco ="<li id="+i+" accesskey="+capacidadDisco+" class='disco hdd online'><span>"+capacidadDisco+"GB</span><button onclick=quitar("+i+")>X</button></li>"
+                var disco ="<li id="+fila+" accesskey="+capacidadDisco+" class='disco hdd online'><span>"+capacidadDisco+"GB</span><button onclick=quitar("+fila+")>X</button></li>"
             else
-                var disco ="<li id="+i+" accesskey="+capacidadDisco+" class='disco hdd online'><span>"+(capacidadDisco/1000)+"TB</span><button onclick=quitar("+i+")>X</button></li>"
+                var disco ="<li id="+fila+" accesskey="+capacidadDisco+" class='disco hdd online'><span>"+(capacidadDisco/1000)+"TB</span><button onclick=quitar("+fila+")>X</button></li>"
             
             let celdas=document.getElementById('lista_ranuras_online')
             
@@ -57,7 +57,7 @@ function quitar(posicion) {
         BotonQuitar.setAttribute("onclick", "quitar(" + i + ")")
     }
 
-    i--
+    fila--
     let select=document.getElementById("select1")
     calcularCapacidad(1,select,capacidadRaid, seguridadRaid,sinUsarRaid,sumaInput,capacidadInput,seguridadInput,sinUsarInput)
     calcularCapacidad(2,select2,capacidadRaid2, seguridadRaid2,sinUsarRaid2,sumaInput2,capacidadInput2,seguridadInput2,sinUsarInput2)
