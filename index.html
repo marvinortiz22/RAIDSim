@@ -113,28 +113,32 @@
                                     <option value="01">RAID 01</option>
                                     <option value="10">RAID 10</option>
                                 </select>
-                                <table class="table table-hover mt-4">
+                                <table class="table table-hover mt-4 mb-5">
                                     <tr>
                                         <td class="table-dark" style="border-radius: 12px 12px 0 0;">Suma:</td>
                                         <td><input class="form-control" type="text" id="suma" value=0 disabled></td>
+                                        <td class="pt-sm-3">GB</td>
                                     </tr>
                                     <tr>
                                         <td class="table-dark">Capacidad:</td>
                                         <td><input class="form-control" type="text" id="capacidad" disabled></td>
+                                        <td class="pt-sm-3">GB</td>
                                     </tr>
                                     <tr>
                                         <td class="table-dark">Seguridad:</td>
                                         <td><input class="form-control" type="text" id="seguridad" disabled></td>
+                                        <td class="pt-sm-3">GB</td>
                                     </tr>
                                     <tr>
                                         <td class="table-dark" style="border-radius: 0 0 12px 12px;border: none;">Sin usar:</td>
                                         <td><input class="form-control" type="text" id="sin_usar" disabled></td>
+                                        <td class="pt-sm-3">GB</td>
                                     </tr>
                                 </table>
 
-                                <div id="grafico" style="width: 500px;height: 500px;">
+                                <div id="grafico"></div>
 
-                                </div>
+                                <div id="grafico3"></div>
                             </div>
                             <div class="col ms-2 mt-4 px-0">
                                 <select class="form-select" id="select2" onchange=cambioSelect(id)>
@@ -145,28 +149,32 @@
                                     <option value="01">RAID 01</option>
                                     <option value="10">RAID 10</option>
                                 </select>
-                                <table class="table table-hover mt-4">
+                                <table class="table table-hover mt-4 mb-5">
                                     <tr>
                                         <td class="table-dark" style="border-radius: 12px 12px 0 0;">Suma:</td>
                                         <td><input class="form-control" type="text" id="suma2" value=0 disabled></td>
+                                        <td class="pt-sm-3">GB</td>
                                     </tr>
                                     <tr>
                                         <td class="table-dark">Capacidad:</td>
                                         <td><input class="form-control" type="text" id="capacidad2" disabled></td>
+                                        <td class="pt-sm-3">GB</td>
                                     </tr>
                                     <tr>
                                         <td class="table-dark">Seguridad:</td>
                                         <td><input class="form-control" type="text" id="seguridad2" disabled></td>
+                                        <td class="pt-sm-3">GB</td>
                                     </tr>
                                     <tr>
                                         <td class="table-dark" style="border-radius: 0 0 12px 12px; border: none">Sin usar:</td>
                                         <td><input class="form-control" type="text" id="sin_usar2" disabled></td>
+                                        <td class="pt-sm-3">GB</td>
                                     </tr>
                                 </table>
 
-                                <div id="grafico2" style="width: 500px;height: 500px;">
+                                <div id="grafico2"></div>
 
-                                </div>
+                                <div id="grafico4">
                             </div>
                         </div>
                     </div>
@@ -176,12 +184,6 @@
         <br>
     </div>
 
-
-
-
-    <div id="grafico" style="width: 500px;height: 500px;">
-        <canvas id="myChart"></canvas>
-    </div>
     <footer class="d-flex flex-wrap justify-content-between align-items-center px-5 py-4 mt-4 border-top bg-dark">
         <div class="col-md-2 d-flex align-items-center">
             <a href="#" class="mb-3 me-2 mb-md-0 text-muted text-decoration-none lh-1">
