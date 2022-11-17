@@ -1,4 +1,4 @@
-td {
+ #raid td {
     border: 1px solid black;
     column-gap: 100px;
     height: 25px;
@@ -6,7 +6,7 @@ td {
     
     
 }
-table{
+#raid{
     border-collapse: separate;
     border-spacing: 25px 0;
 }

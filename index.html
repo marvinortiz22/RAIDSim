@@ -17,6 +17,8 @@
 
     <!-- CSS propio -->
     <link rel="stylesheet" href="css/simulador.css">
+    <link rel="stylesheet" href="css/modal.css">
+
     <!-- CSS only -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
@@ -41,16 +43,48 @@
                 <p class="lead">ARC115 - Grupo 16.</p>
                 <hr class="my-4">
 
-                <h6 class="display-6">Poner aqui modales con teoria</h6>
+                <button id="myBtn">Open Modal</button>
 
-                <p>RAID 0</p>
-                <p>RAID 1</p>
-                <p>RAID 3</p>
-                <p>RAID 5</p>
-                <p>RAID 01</p>
-                <p>RAID 10</p>
+<!-- The Modal -->
+<div id="myModal" class="modal">
 
-                <br>
+  <!-- Modal content -->
+  <!-- Modal content -->
+<div class="modal-content">
+    <div class="modal-header">
+      <span class="close">&times;</span>
+      <h2>Modal Header</h2>
+    </div>
+    <div class="modal-body">
+      <table>
+        <tr>
+            <td><p><strong>RAID 0: </strong>También llamado volumen dividido (Striping), no tiene paridad ni redundancia, 
+                por lo que, si falla una de las unidades de almacenamiento, perderemos todos los datos que había en su 
+                interior, a menos que tengamos realizadas copias de seguridad externas. Este arreglo realiza una 
+                distribución equitativa de los bloques de datos entre los distintos discos que lo componen. Es importante 
+                señalar que el RAID 0 no era uno de los niveles RAID originales. El RAID 0 se usa habitualmente para 
+                proporcionar un alto rendimiento de escritura ya que los datos se escriben en dos o más discos de forma 
+                paralela, aunque un mismo fichero solo está presente una vez en el conjunto. </p>
+            </td>
+            <td>
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Raid0.png/220px-Raid0.png" alt="">
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <p><strong>RAID 1: </strong>En este nivel de RAID, se hace una copia de cada bloque guardado (Mirroring) 
+                    en los distintos discos que conforman la unidad lógica. Esto resulta útil cuando queremos tener más 
+                    seguridad desaprovechando capacidad, ya que, si perdemos un disco, tenemos el otro con la misma 
+                    información. </p>
+            </td>
+        </tr>
+      </table>
+    </div>
+    
+  </div>
+
+</div>
 
                 <P>Si desea visualizar los diagramas con su respectiva configuracion RAID dar click en "Ver simulacion"
                 </P>
