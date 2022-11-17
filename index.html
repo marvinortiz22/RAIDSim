@@ -48,53 +48,95 @@
                 <!-- The Modal -->
                 <div id="myModal" class="modal">
 
-                    <!-- Modal content -->
-                    <!-- Modal content -->
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <span class="close">&times;</span>
-                            <h2>Modal Header</h2>
-                        </div>
-                        <div class="modal-body">
-                            <table>
-                                <tr>
-                                    <td>
-                                        <p><strong>RAID 0: </strong>También llamado volumen dividido (Striping), no
-                                            tiene paridad ni redundancia,
-                                            por lo que, si falla una de las unidades de almacenamiento, perderemos todos
-                                            los datos que había en su
-                                            interior, a menos que tengamos realizadas copias de seguridad externas. Este
-                                            arreglo realiza una
-                                            distribución equitativa de los bloques de datos entre los distintos discos
-                                            que lo componen. Es importante
-                                            señalar que el RAID 0 no era uno de los niveles RAID originales. El RAID 0
-                                            se usa habitualmente para
-                                            proporcionar un alto rendimiento de escritura ya que los datos se escriben
-                                            en dos o más discos de forma
-                                            paralela, aunque un mismo fichero solo está presente una vez en el conjunto.
-                                        </p>
-                                    </td>
-                                    <td>
-                                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Raid0.png/220px-Raid0.png"
-                                            alt="">
+  <!-- Modal content -->
+  <!-- Modal content -->
+<div class="modal-content">
+    <div class="modal-header">
+      <span class="close">&times;</span>
+      <h2>RAIDS</h2>
+    </div>
+    <div class="modal-body">
+      <table>
+        <tr>
+            <td><p><strong>RAID 0: </strong>También llamado volumen dividido (Striping), no tiene paridad ni redundancia, 
+                por lo que, si falla una de las unidades de almacenamiento, perderemos todos los datos que había en su 
+                interior, a menos que tengamos realizadas copias de seguridad externas. Este arreglo realiza una 
+                distribución equitativa de los bloques de datos entre los distintos discos que lo componen. Es importante 
+                señalar que el RAID 0 no era uno de los niveles RAID originales. El RAID 0 se usa habitualmente para 
+                proporcionar un alto rendimiento de escritura ya que los datos se escriben en dos o más discos de forma 
+                paralela, aunque un mismo fichero solo está presente una vez en el conjunto. </p>
+            </td>
+            <td>
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Raid0.png/220px-Raid0.png" alt="">
 
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <p><strong>RAID 1: </strong>En este nivel de RAID, se hace una copia de cada
-                                            bloque guardado (Mirroring)
-                                            en los distintos discos que conforman la unidad lógica. Esto resulta útil
-                                            cuando queremos tener más
-                                            seguridad desaprovechando capacidad, ya que, si perdemos un disco, tenemos
-                                            el otro con la misma
-                                            información. </p>
-                                    </td>
-                                </tr>
-                            </table>
-                        </div>
-                    </div>
-                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <p><strong>RAID 1: </strong>En este nivel de RAID, se hace una copia de cada bloque guardado (Mirroring) 
+                    en los distintos discos que conforman la unidad lógica. Esto resulta útil cuando queremos tener más 
+                    seguridad desaprovechando capacidad, ya que, si perdemos un disco, tenemos el otro con la misma 
+                    información. </p>
+            </td>
+            <td>
+                <img src="https://www.microgamma.com/tecnologia/i/461px-Raid1.png" alt="">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <p><strong>RAID 3: </strong>Un RAID 3 usa "data striping", consiste en dividir los datos a nivel de byte 
+                    en las distintas unidades que forma el RAID, excepto una, en donde se almacena información de paridad 
+                    para poder unir estos datos al ser leídos. De esta forma cada byte almacenado tiene un bit extra de 
+                    paridad para identificar errores y poder recuperar datos en caso de pérdida de una unidad.</p>
+            </td>
+            <td>
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Raid3.png/220px-Raid3.png" alt="">
+            </td>
+        </tr>
+        <tr>
+            <td><p><strong>RAID 5: </strong>También llamado sistema distribuido con paridad, en este nivel la información es 
+                almacenada de forma dividida (striping) en bloques que se reparten entre los discos duros que formen el 
+                RAID. Pero además se genera un bloque de paridad para asegurar la redundancia y poder reconstruir la 
+                información en caso de que un disco duro se corrompa. Este bloque de paridad se almacenará en una unidad 
+                distinta a los bloques de datos que están implicados en el bloque calculado, de esta forma la información 
+                de paridad estará almacenada en un disco distinto a donde están los bloques de datos implicados. </td>
+            </p><td>
+                    <img src="https://www.microgamma.com/tecnologia/i/460px-Raid5.png" alt="">
+                </td>
+        </tr>
+        <tr>
+            <td><p><strong>RAID 01: </strong>Se le denomina espejo de divisiones. Consiste en un nivel principal de tipo 
+                RAID 1 que hace las funciones de replicar los datos que se encuentran en un primer subnivel en un
+                 segundo. A su vez existirá un subnivel RAID 0 que hará las funciones propias de éste, es decir, 
+                 almacenar los datos de forma distribuida entre las unidades que en él se encuentran. De esta forma 
+                 tenemos un nivel principal que hace la función de espejo y subniveles que hacen la función de división 
+                 de datos. De esta forma si un disco duro falla, los datos estarán bien guardados en el otro RAID 0 de 
+                 espejo. 
+                </p></td>
+            <td>
+                <img src="https://cdn.computerhoy.com/sites/navi.axelspringer.es/public/styles/1200/public/media/image/2018/02/287303-esquema-raid-01.jpg?itok=7dSFkQwp" alt="">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <p><strong>RAID 10: </strong>También llamada división de espejos. Tiene un nivel principal de tipo 0 que 
+                divide los datos almacenados entre los distintos subniveles. A su vez tendremos varios subniveles de tipo 
+                1 que se encargarán de replicar los datos en los discos duros que tengan en su interior. En este caso la 
+                tolerancia a fallos nos va a permitir que pueda fallar todos los discos de un subnivel a excepción de 
+                uno, y será necesario que al menos quede un disco sano en cada uno de los subniveles para no perder 
+                información. Este arreglo de discos, es muy rápida, nada más superada por el RAID 0.
+
+            </p></td>
+            <td>
+                <img src="https://www.lifewire.com/thmb/ieRKC6GNeeNT87OHaUDoO7wFCEk=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Raid10-56a5d5525f9b58b7d0dea1c9.jpg" alt="">
+            </td>
+        </tr>
+      </table>
+    </div>
+    
+  </div>
+
+</div>
 
                 <P>Si desea visualizar los diagramas con su respectiva configuracion RAID dar click en "Ver simulacion"
                 </P>
