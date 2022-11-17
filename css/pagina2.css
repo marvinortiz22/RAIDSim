@@ -13,5 +13,11 @@ table{
 #bloque{
     height: 25px;
     width: 100px;
+   
+}
+#seguridad{
+    background-color: yellow;
+}
+#paridad{
     background-color: blue;
 }

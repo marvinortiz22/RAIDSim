@@ -2,6 +2,11 @@ let celdas = document.getElementsByTagName("td")
 let celdaInicial = 0, celdaFinal = 0, fila = 6, paridadRaid5 = 0
 let letras = ["F", "E", "D", "C", "B", "A"]
 let select = document.getElementById("select")
+let dato=document.getElementById("dato")
+let output = document.getElementById("ti2")
+var input = document.getElementById("dato")
+
+
 function ubicarCelda() {
     if(fila>0){
     fila--
@@ -36,23 +41,30 @@ function ubicarCelda() {
 }
 }
 function AgregarDato(celdaInicial, celdaFinal) {
+    output.innerHTML = "";
+    for (var i = 0; i < dato.value.length; i++) {
+        output.innerHTML += dato.value[i].charCodeAt(0).toString(2) + " ";
+    }
     switch (select.value) {
         case '0':
             for (let i = celdaInicial, j = 0; i <= celdaFinal; i++, j++) {
-                celdas[i].innerHTML = "<div id='bloque'>" + letras[fila] + j + "</div>"
+                celdas[i].innerHTML = "<div id='bloque'>" + dato.value[j].charCodeAt(0).toString(2) + "</div>"
             }
             break
         case '1':
             for (let i = celdaInicial; i <= celdaFinal; i++) {
-                celdas[i].innerHTML = "<div id='bloque'>" + letras[fila] + "</div>"
+                if(i==celdaInicial)
+                    celdas[i].innerHTML = "<div id='bloque'>" + dato.value.charCodeAt(0).toString(2) + "</div>"
+                else
+                    celdas[i].innerHTML = "<div id='seguridad'>" + dato.value.charCodeAt(0).toString(2) + "</div>"
             }
             break
         case '3':
             for (let i = celdaInicial, j = 0; i <= celdaFinal; i++, j++) {
                 if (i < celdaFinal)
-                    celdas[i].innerHTML = "<div id='bloque'>" + letras[fila] + j + "</div>"
+                    celdas[i].innerHTML = "<div id='bloque'>" + dato.value[j].charCodeAt(0).toString(2) + "</div>"
                 else
-                    celdas[i].innerHTML = "<div id='bloque'>Parity" + letras[fila] + "</div>"
+                    celdas[i].innerHTML = "<div id='paridad'>Parity" + dato.value[0].charCodeAt(0).toString(2)^dato.value[1].charCodeAt(0).toString(2)^dato.value[2].charCodeAt(0).toString(2)^dato.value[3].charCodeAt(0).toString(2)^dato.value[4].charCodeAt(0).toString(2) + "</div>"
 
             }
             break
@@ -72,27 +84,36 @@ function AgregarDato(celdaInicial, celdaFinal) {
                 paridadRaid5 = celdaFinal - 5
             for (let i = celdaInicial, j = 0; i <= celdaFinal; i++, j++) {
                 if (i == paridadRaid5){
-                    celdas[i].innerHTML = "<div id='bloque'>Parity" + letras[fila] + "</div>"
+                    celdas[i].innerHTML = "<div id='paridad'>Parity" + letras[fila] + "</div>"
                     j--
                 }
                 else
-                    celdas[i].innerHTML = "<div id='bloque'>" + letras[fila] + j + "</div>"
+                    celdas[i].innerHTML = "<div id='bloque'>" + dato.value[j].charCodeAt(0).toString(2) + "</div>"
             }
             break
         case '10':
             
             for (let i = celdaInicial, j = 0,k=0; i <= celdaFinal; i++,k++) {
-                celdas[i].innerHTML = "<div id='bloque'>" + letras[fila] + j + "</div>"
-                if(k%2!=0)
+                if(k%2!=0){
+                    celdas[i].innerHTML = "<div id='seguridad'>" + dato.value[j].charCodeAt(0).toString(2) + "</div>"
+
                     j++
+                }
+                    
+                else
+                    celdas[i].innerHTML = "<div id='bloque'>" + dato.value[j].charCodeAt(0).toString(2) + "</div>"
+
             }
             break
         case '01':
             
-            for (let i = celdaInicial, j = 0; i <= celdaFinal; i++, j++) {
-                celdas[i].innerHTML = "<div id='bloque'>" + letras[fila] + j + "</div>"
+            for (let i = celdaInicial, j = 0,k=0; i <= celdaFinal; i++, j++,k++) {
+                if(k<2)
+                    celdas[i].innerHTML = "<div id='bloque'>" + dato.value[j].charCodeAt(0).toString(2) + "</div>"
+                else
+                    celdas[i].innerHTML = "<div id='seguridad'>" + dato.value[j].charCodeAt(0).toString(2) + "</div>"
                 if(j%2!=0)
-                    j=-1    
+                    j=-1   
             }
             break
 
@@ -102,5 +123,25 @@ function limpiarRaid() {
     fila = 6
     for (let i = 0; i < celdas.length; i++) {
         celdas[i].innerHTML = ""
+    }
+    switch(select.value){
+        case '0':
+            dato.innerHTML="<option value='abrazo'>abrazo</option><option value='bagres'>bagres</option><option value='cabeza'>cabeza</option><option value='deseos'>deseos</option><option value='empeño'>empeño</option>"
+            break
+        case '1':
+            dato.innerHTML="<option value='A'>A</option><option value='B'>B</option><option value='C'>C</option><option value='D'>D</option><option value='E'>E</option>"
+            break
+        case '3':
+            dato.innerHTML="<option value='altos'>altos</option><option value='bebes'>bebes</option><option value='cabra'>cabra</option><option value='dados'>dados</option><option value='euros'>euros</option>"
+            break
+        case '5':
+            dato.innerHTML="<option value='altos'>altos</option><option value='bebes'>bebes</option><option value='cabra'>cabra</option><option value='dados'>dados</option><option value='euros'>euros</option>"
+            break
+        case '10':
+            dato.innerHTML="<option value='ala'>ala</option><option value='cae'>cae</option><option value='hoy'>hoy</option><option value='iba'>iba</option><option value='iva'>iva</option>"
+            break
+        case '01':
+            dato.innerHTML="<option value='yo'>yo</option><option value='ya'>ya</option><option value='vi'>vi</option><option value='la'>la</option><option value='me'>me</option>"
+            break
     }
 }
