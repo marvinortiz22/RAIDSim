@@ -13,6 +13,7 @@
 #bloque{
     height: 25px;
     width: 100px;
+    background-color: gray;
    
 }
 #seguridad{
@@ -20,4 +21,15 @@
 }
 #paridad{
     background-color: blue;
+}
+
+#informacion td{
+    border: 1px solid black;
+    
+    height: 25px;
+    width: 100px;
+}
+
+#informacion{
+    margin: auto;
 }
