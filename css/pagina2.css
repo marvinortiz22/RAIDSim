@@ -10,14 +10,3 @@
     border-collapse: separate;
     border-spacing: 25px 0;
 }
-#bloque{
-    height: 25px;
-    width: 100px;
-   
-}
-#seguridad{
-    background-color: yellow;
-}
-#paridad{
-    background-color: blue;
-}

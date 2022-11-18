@@ -51,6 +51,7 @@ function cambioDeSimulacion(){
     fila = 6
     for (let i = 0; i < celdas.length; i++) {
         celdas[i].innerHTML = ""
+        celdas[i].setAttribute("class", '')
     }
     if(select3.value=="binaria")
         dato.disabled=false
@@ -74,16 +75,20 @@ function AgregarDatoBinario(celdaInicial, celdaFinal) {
             for (let i = celdaInicial; i <= celdaFinal; i++) {
                 if(i==celdaInicial)
                     celdas[i].innerHTML = "<div id='bloque'>" + dato.value.charCodeAt(0).toString(2) + "</div>"
-                else
+                else {
                     celdas[i].innerHTML = "<div id='seguridad'>" + dato.value.charCodeAt(0).toString(2) + "</div>"
+                    celdas[i].setAttribute("class", 'table-warning')
+                }
             }
             break
         case '3':
             for (let i = celdaInicial, j = 0; i <= celdaFinal; i++, j++) {
                 if (i < celdaFinal)
                     celdas[i].innerHTML = "<div id='bloque'>" + dato.value[j].charCodeAt(0).toString(2) + "</div>"
-                else
+                else {
                     celdas[i].innerHTML = "<div id='paridad'>" + xor()+ "</div>"
+                    celdas[i].setAttribute("class", 'table-info')
+                }
 
             }
             break
@@ -104,6 +109,7 @@ function AgregarDatoBinario(celdaInicial, celdaFinal) {
             for (let i = celdaInicial, j = 0; i <= celdaFinal; i++, j++) {
                 if (i == paridadRaid5){
                     celdas[i].innerHTML = "<div id='paridad'>" + xor() + "</div>"
+                    celdas[i].setAttribute("class", 'table-info')
                     j--
                 }
                 else
@@ -115,7 +121,7 @@ function AgregarDatoBinario(celdaInicial, celdaFinal) {
             for (let i = celdaInicial, j = 0,k=0; i <= celdaFinal; i++,k++) {
                 if(k%2!=0){
                     celdas[i].innerHTML = "<div id='seguridad'>" + dato.value[j].charCodeAt(0).toString(2) + "</div>"
-
+                    celdas[i].setAttribute("class", 'table-warning')
                     j++
                 }
                     
@@ -129,8 +135,10 @@ function AgregarDatoBinario(celdaInicial, celdaFinal) {
             for (let i = celdaInicial, j = 0,k=0; i <= celdaFinal; i++, j++,k++) {
                 if(k<2)
                     celdas[i].innerHTML = "<div id='bloque'>" + dato.value[j].charCodeAt(0).toString(2) + "</div>"
-                else
+                else {
                     celdas[i].innerHTML = "<div id='seguridad'>" + dato.value[j].charCodeAt(0).toString(2) + "</div>"
+                    celdas[i].setAttribute("class", 'table-warning')
+                }
                 if(j%2!=0)
                     j=-1   
             }
@@ -142,6 +150,7 @@ function limpiarRaid() {
     fila = 6
     for (let i = 0; i < celdas.length; i++) {
         celdas[i].innerHTML = ""
+        celdas[i].setAttribute("class", '')
     }
     switch(select.value){
         case '0':
@@ -181,16 +190,20 @@ function AgregarDatoGenerico(celdaInicial, celdaFinal) {
             for (let i = celdaInicial; i <= celdaFinal; i++) {
                 if(i==celdaInicial)
                     celdas[i].innerHTML = "<div id='bloque'>" + letras[fila] + "</div>"
-                else
+                else {
                     celdas[i].innerHTML = "<div id='seguridad'>" + letras[fila] + "</div>"
+                    celdas[i].setAttribute("class", 'table-warning')
+                }
             }
             break
         case '3':
             for (let i = celdaInicial, j = 0; i <= celdaFinal; i++, j++) {
                 if (i < celdaFinal)
                     celdas[i].innerHTML = "<div id='bloque'>" + letras[fila] + j + "</div>"
-                else
+                else {
                     celdas[i].innerHTML = "<div id='paridad'>Parity" + letras[fila] + "</div>"
+                    celdas[i].setAttribute("class", 'table-info')
+                }
 
             }
             break
@@ -211,6 +224,7 @@ function AgregarDatoGenerico(celdaInicial, celdaFinal) {
             for (let i = celdaInicial, j = 0; i <= celdaFinal; i++, j++) {
                 if (i == paridadRaid5){
                     celdas[i].innerHTML = "<div id='paridad'>Parity" + letras[fila] + "</div>"
+                    celdas[i].setAttribute("class", 'table-info')
                     j--
                 }
                 else
@@ -222,7 +236,7 @@ function AgregarDatoGenerico(celdaInicial, celdaFinal) {
             for (let i = celdaInicial, j = 0,k=0; i <= celdaFinal; i++,k++) {
                 if(k%2!=0){
                     celdas[i].innerHTML = "<div id='seguridad'>" + letras[fila] + j + "</div>"
-
+                    celdas[i].setAttribute("class", 'table-warning')
                     j++
                 }
                 else
@@ -236,6 +250,7 @@ function AgregarDatoGenerico(celdaInicial, celdaFinal) {
             for (let i = celdaInicial, j = 0; i <= celdaFinal; i++, j++) {
                 if(j%2!=0){
                     celdas[i].innerHTML = "<div id='seguridad'>" + letras[fila] + j + "</div>"
+                    celdas[i].setAttribute("class", 'table-warning')
                     j=-1 
                 }
                 else
