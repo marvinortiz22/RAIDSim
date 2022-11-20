@@ -5,7 +5,11 @@
   }
   
   /* Modal Body */
-  .modal-body {padding: 2px 16px;}
+  .modal-body {
+    padding: 2px 16px;
+    max-width: 100%;
+    overflow-x: auto;
+  }
   
   
   /* Modal Content */
@@ -31,5 +35,3 @@
     width: 300px;
     height: 300px;
   }
-  
-  

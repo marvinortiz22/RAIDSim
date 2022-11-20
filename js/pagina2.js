@@ -247,14 +247,15 @@ function AgregarDatoGenerico(celdaInicial, celdaFinal) {
             break
         case '01':
             
-            for (let i = celdaInicial, j = 0; i <= celdaFinal; i++, j++) {
-                if(j%2!=0){
+            for (let i = celdaInicial, j = 0,k=0; i <= celdaFinal; i++, j++,k++) {
+                if(k<2)
+                    celdas[i].innerHTML = "<div id='bloque'>" + letras[fila] + j + "</div>"
+                else {
                     celdas[i].innerHTML = "<div id='seguridad'>" + letras[fila] + j + "</div>"
                     celdas[i].setAttribute("class", 'table-warning')
-                    j=-1 
                 }
-                else
-                    celdas[i].innerHTML = "<div id='bloque'>" + letras[fila] + j + "</div>"
+                if(j%2!=0)
+                    j=-1   
             }
             break
     }

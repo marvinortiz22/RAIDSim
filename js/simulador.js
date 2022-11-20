@@ -292,7 +292,7 @@ function crearChartPastel(k, capacidadRaid, seguridadRaid, sinUsarRaid) {
         options: {
             responsive: true,
             maintainAspectRatio: false
-        }
+        }     
     };
 
     const myChart = new Chart(
