@@ -1,6 +1,6 @@
 /*ZONA PARA SELECCIONAR DISCOS*/
 #area_discos {
-    margin-bottom: 40px;
+   
     padding: 10px;
 }
 
@@ -16,15 +16,15 @@
 }
 
 #lista_discos .hdd {
-    width: 98px;
-    height: 100px;
+    width: 75px;
+    height: 75px;
 
     margin: 0 5px 10px 5px;
     
     border: none;
 
     background-image: url("../img/discoHDD.png");
-    background-size: 98px 100px;
+    background-size: 100%;
     background-repeat: no-repeat;
     background-color: transparent;
 
@@ -45,19 +45,15 @@
 
 /*ZONA PARA MOSTRAR DISCOS EN EL NAS*/
 #area_nas {
-    width: 100%;
-    max-width: 877px;
-    height: 684px;
-
+    aspect-ratio: 877/684;
     margin: 0 auto;
-
     position: relative;
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
-
     background-image: url(../img/NAS.png);
     background-size: 100% 100%;
+    
     background-repeat: no-repeat;
 }
 
@@ -79,9 +75,9 @@
     
     margin: 0;
     
-    padding-top: 208px;
+    padding-top: 22.5%;
     padding-right: 8.80%;
-    padding-bottom: 76px;
+    padding-bottom: 7.5%;
     padding-left: 19.84%;
 
     display: flex;
@@ -123,7 +119,7 @@
     background-position: center center;
     background-repeat: no-repeat;
     border: 0;
-
+    background-size: 100% 100%;
     text-align: center;
     font-weight: bold;
     font-size: medium;
@@ -136,6 +132,7 @@
     right: 0;
     top: 30%;
     text-align: center;
+    font-size: 1.5vw;
 }
 
 #lista_ranuras .hdd.online button {
@@ -157,6 +154,10 @@
     font-weight: bold;
     font-size: medium;
     color: rgb(255, 255, 255);
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 /*ZONA DE RESULTADOS*/
@@ -182,33 +183,8 @@ footer a:hover{
 	color: white;;
 }
 
-/* BORRADOR
-[title=disco] {
-    border: 1px solid black;
-    height: 100px;
-    width: 50px;
-    background-color: black;
-    color: white;
+@media (max-width: 768px){
+    #lista_ranuras .hdd.online span {
+        font-size: 2.5vw;
+    }
 }
-
-img {
-    height: 100px;
-    width: 50px;
-}
-
-#tbody td {
-    border: 1px solid black;
-    height: 100px;
-    width: 50px;
-}
-
-.quitar td {
-
-    height: 20px;
-    width: 50px;
-}
-
-button {
-    height: 20px;
-
-}*/
