@@ -191,9 +191,9 @@ function addDataPastel(myChart, capacidadRaid, seguridadRaid, sinUsarRaid) {
 function crearChartBarras(k, capacidadRaid, seguridadRaid, sinUsarRaid) {
 
     if (k == 3)
-        graficoDiv3.innerHTML = "<div style='width: 95%; height: 40vh;'><canvas id='myChart" + k + "'></canvas></div>"
+        graficoDiv3.innerHTML = "<div style='height: 248px;'><canvas id='myChart" + k + "'></canvas></div>"
     else
-        graficoDiv4.innerHTML = "<div style='width: 95%; height: 40vh;'><canvas id='myChart" + k + "'></canvas></div>"
+        graficoDiv4.innerHTML = "<div style='height: 248px;'><canvas id='myChart" + k + "'></canvas></div>"
 
     const labels = [
         ''
@@ -230,6 +230,22 @@ function crearChartBarras(k, capacidadRaid, seguridadRaid, sinUsarRaid) {
                     display: true,
 
                 },
+                datalabels: {
+                    formatter: (value, ctx) => {
+                        let sum = 0;
+                        let dataArr = ctx.chart.data.datasets[0].data;
+                        dataArr.map(data => {
+                            sum += data;
+                        });
+                        let percentage = (value * 100 / sum).toFixed(2) + "%";
+                        return percentage;
+                    },
+                    color: '#fff',
+                    font: {
+                        weight: 'bold',
+                        size: '16'
+                    }
+                },
                 legend: {
                     display: true,
                     labels: {
@@ -250,7 +266,7 @@ function crearChartBarras(k, capacidadRaid, seguridadRaid, sinUsarRaid) {
             }
 
 
-        }
+        },
 
     }
 
@@ -264,9 +280,9 @@ function crearChartBarras(k, capacidadRaid, seguridadRaid, sinUsarRaid) {
 function crearChartPastel(k, capacidadRaid, seguridadRaid, sinUsarRaid) {
 
     if (k == 1)
-        graficoDiv.innerHTML = "<div style='width: 95%; height: 75vh;'><canvas id='myChart" + k + "'></canvas></div>"
+        graficoDiv.innerHTML = "<div><canvas id='myChart" + k + "'></canvas></div>"
     else
-        graficoDiv2.innerHTML = "<div style='width: 95%; height: 75vh;'><canvas id='myChart" + k + "'></canvas></div>"
+        graficoDiv2.innerHTML = "<div><canvas id='myChart" + k + "'></canvas></div>"
 
     const data = {
         labels: [
