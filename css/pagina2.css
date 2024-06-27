@@ -1,0 +1,16 @@
+@media (max-width:768px){
+    #simulacion{
+        padding: 1%;
+        width: 100%;
+    }
+    #raid tr td{
+        padding: 1%;
+        font-size: 0.70em;
+    }
+}
+
+@media (max-width:320px){
+    #raid tr td{
+        font-size: 0.5em;
+    }
+}
