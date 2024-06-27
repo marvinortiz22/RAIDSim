@@ -54,14 +54,17 @@
                     <!-- Modal content -->
                     <!-- Modal content -->
                     <div class="modal-content">
-                        <div class="modal-header">
-                            <span class="close">&times;</span>
-                            <h2>RAIDS</h2>
+                        <div class="modal-header justify-content-between">
+                            <button type="button" class="close btn btn-none" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                              </button>
+                            <h2>Tipos de RAID</h2>
+                            <p></p>
                         </div>
                         <div class="modal-body">
-                            <table>
-                                <tr>
-                                    <td>
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-md-6">
                                         <p><strong>RAID 0: </strong>También llamado volumen dividido (Striping), no
                                             tiene paridad ni redundancia,
                                             por lo que, si falla una de las unidades de almacenamiento, perderemos todos
@@ -76,15 +79,14 @@
                                             en dos o más discos de forma
                                             paralela, aunque un mismo fichero solo está presente una vez en el conjunto.
                                         </p>
-                                    </td>
-                                    <td>
-                                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Raid0.png/220px-Raid0.png"
+                                    </div>
+                                    <div class="col-md-6 d-flex justify-content-center align-items-center">
+                                        <img style="aspect-ratio: 220/286;" src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Raid0.png/220px-Raid0.png"
                                             alt="">
-
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
                                         <p><strong>RAID 1: </strong>En este nivel de RAID, se hace una copia de cada
                                             bloque guardado (Mirroring)
                                             en los distintos discos que conforman la unidad lógica. Esto resulta útil
@@ -92,13 +94,13 @@
                                             seguridad desaprovechando capacidad, ya que, si perdemos un disco, tenemos
                                             el otro con la misma
                                             información. </p>
-                                    </td>
-                                    <td>
-                                        <img src="https://www.microgamma.com/tecnologia/i/461px-Raid1.png" alt="">
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
+                                    </div>
+                                    <div class="col-md-6 d-flex justify-content-center align-items-center">
+                                        <img style="aspect-ratio: 461/600;" src="https://www.microgamma.com/tecnologia/i/461px-Raid1.png" alt="">
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
                                         <p><strong>RAID 3: </strong>Un RAID 3 usa "data striping", consiste en dividir
                                             los datos a nivel de byte
                                             en las distintas unidades que forma el RAID, excepto una, en donde se
@@ -107,14 +109,14 @@
                                             almacenado tiene un bit extra de
                                             paridad para identificar errores y poder recuperar datos en caso de pérdida
                                             de una unidad.</p>
-                                    </td>
-                                    <td>
-                                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Raid3.png/220px-Raid3.png"
+                                    </div>
+                                    <div class="col-md-6 d-flex justify-content-center align-items-center">
+                                        <img style="aspect-ratio: 220/137;" src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Raid3.png/220px-Raid3.png"
                                             alt="">
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
                                         <p><strong>RAID 5: </strong>También llamado sistema distribuido con paridad, en
                                             este nivel la información es
                                             almacenada de forma dividida (striping) en bloques que se reparten entre los
@@ -126,15 +128,14 @@
                                             distinta a los bloques de datos que están implicados en el bloque calculado,
                                             de esta forma la información
                                             de paridad estará almacenada en un disco distinto a donde están los bloques
-                                            de datos implicados.
-                                    </td>
-                                    </p>
-                                    <td>
-                                        <img src="https://www.microgamma.com/tecnologia/i/460px-Raid5.png" alt="">
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
+                                            de datos implicados.</p>
+                                    </div>
+                                    <div class="col-md-6 d-flex justify-content-center align-items-center">
+                                        <img style="aspect-ratio: 460/286;" src="https://www.microgamma.com/tecnologia/i/460px-Raid5.png" alt="">
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
                                         <p><strong>RAID 01: </strong>Se le denomina espejo de divisiones. Consiste en un
                                             nivel principal de tipo
                                             RAID 1 que hace las funciones de replicar los datos que se encuentran en un
@@ -149,14 +150,14 @@
                                             guardados en el otro RAID 0 de
                                             espejo.
                                         </p>
-                                    </td>
-                                    <td>
-                                        <img src="https://cdn.computerhoy.com/sites/navi.axelspringer.es/public/styles/1200/public/media/image/2018/02/287303-esquema-raid-01.jpg?itok=7dSFkQwp"
+                                    </div>
+                                    <div class="col-md-6 d-flex justify-content-center align-items-center">
+                                        <img style="aspect-ratio: 770/677;" src="./img/raid01.jpg"
                                             alt="">
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
                                         <p><strong>RAID 10: </strong>También llamada división de espejos. Tiene un nivel
                                             principal de tipo 0 que
                                             divide los datos almacenados entre los distintos subniveles. A su vez
@@ -169,15 +170,14 @@
                                             subniveles para no perder
                                             información. Este arreglo de discos, es muy rápida, nada más superada por el
                                             RAID 0.
-
                                         </p>
-                                    </td>
-                                    <td>
-                                        <img src="https://www.lifewire.com/thmb/ieRKC6GNeeNT87OHaUDoO7wFCEk=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Raid10-56a5d5525f9b58b7d0dea1c9.jpg"
+                                    </div>
+                                    <div class="col-md-6 d-flex justify-content-center align-items-center">
+                                        <img style="aspect-ratio: 1157/1000;" src="./img/raid10.jpg"
                                             alt="">
-                                    </td>
-                                </tr>
-                            </table>
+                                    </div>
+                                </div>
+                            </div>                          
                         </div>
                     </div>
                 </div>
@@ -291,18 +291,18 @@
                             </div>
                         </div>
                         <div class="row row-graficos">
-                            <div class="col-md-6 d-flex flex-column">
-                                <div id="grafico"></div>
+                            <div class="col-md-6 d-flex flex-column text-center">
+                                <p id="titulo-graficos1" class="text-center" style="font-weight: bold;">RAID 0</p>
+                                <div id="grafico" class="text-center"></div>
                                 <div id="grafico3"></div>
                             </div>
-                            <div class="col-md-6">
-                                <div id="grafico2"></div>
+                            <div class="col-md-6 d-flex flex-column text-center">
+                                <p id="titulo-graficos2" class="text-center" style="font-weight: bold;">RAID 1</p>
+                                <div id="grafico2" class="text-center"></div>
                                 <div id="grafico4"></div>
                             </div>
                         </div>
-                    </div>
-
-                    
+                    </div>                   
                     </div>
                 </div>
         </section>
@@ -327,5 +327,6 @@
 <script>
     Generar(500)
     Generar(500)
+    document.getElementById("myBtn").click()
 </script>
 </html>

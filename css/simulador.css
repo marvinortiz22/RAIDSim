@@ -188,9 +188,16 @@ footer a:hover{
 	color: white;;
 }
 
+p{
+    text-align: justify;
+}
+
 @media (max-width: 768px){
     #lista_ranuras .hdd.online span {
         font-size: 2.25vw;
+    }
+    #titulo-graficos2{
+        margin-top: 2rem;
     }
 }
 

@@ -15,10 +15,8 @@ let capacidadRaid = 0, sumaRaid = 0, seguridadRaid = 0, sinUsarRaid = 0, mensaje
 let capacidadRaid2 = 0, seguridadRaid2 = 0, sinUsarRaid2 = 0
 let select = document.getElementById("select1")
 let select2 = document.getElementById("select2")
-
-
-
-
+let tituloGraficos1=document.getElementById("titulo-graficos1")
+let tituloGraficos2=document.getElementById("titulo-graficos2")
 
 function Generar(capacidadDisco) {
     if (fila < 5) {
@@ -67,10 +65,16 @@ function quitar(posicion) {
 
 function cambioSelect(id) {
     let select = document.getElementById("" + id + "")
-    if (id == "select1")
+    if (id == "select1"){
         calcularCapacidad(1, select, capacidadRaid, seguridadRaid, sinUsarRaid, sumaInput, capacidadInput, seguridadInput, sinUsarInput)
-    else
+        let selectedIndex = select.selectedIndex;
+        tituloGraficos1.innerHTML=select.options[selectedIndex].text;
+    }
+    else{
         calcularCapacidad(2, select2, capacidadRaid2, seguridadRaid2, sinUsarRaid2, sumaInput2, capacidadInput2, seguridadInput2, sinUsarInput2)
+        let selectedIndex = select2.selectedIndex;
+        tituloGraficos2.innerHTML=select2.options[selectedIndex].text;
+    }
 }
 
 function calcularCapacidad(k, select, capacidadRaid, seguridadRaid, sinUsarRaid, sumaInput, capacidadInput, seguridadInput, sinUsarInput) {
