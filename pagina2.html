@@ -30,303 +30,305 @@
 
 <body>
     <header>
-        <nav class="navbar navbar-dark bg-dark">
+        <nav class="navbar navbar-dark bg-dark py-4">
             <!--a class="navbar-brand ps-5" href="index.html">
                 <img src="img/Logo.png" width="73.41px" height="68px" alt="Logo RaidSim">
             </a-->
         </nav>
     </header>
 
-    <div class="container mt-4 mb-4 bg-light rounded-3">
-        <section>
-            <div class="p-5 pb-4">
-                <h1 class="display-4 text-center">Diagramas de configuracion RAID</h1>
-                <hr class="mt-4">
-
-                <div class="d-flex justify-content-around flex-wrap">
-                    <button class="btn btn-secondary mt-4" id="myBtn" style="min-width: 156.78px;">Tipos de RAID</button>
-
-                    <a href="index.html" class="btn btn-dark mt-4" style="min-width: 156.78px;">Pantalla principal</a>
-                </div>
-
-                <!-- The Modal -->
-                <div id="myModal" class="modal">
-
-                    <!-- Modal content -->
-                    <!-- Modal content -->
-                    <div class="modal-content">
-                        <div class="modal-header justify-content-between">
-                            <button type="button" class="close btn btn-none" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                              </button>
-                            <h2>Tipos de RAID</h2>
-                            <p></p>
-                        </div>
-                        <div class="modal-body">
-                            <div class="container">
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <p><strong>RAID 0: </strong>También llamado volumen dividido (Striping), no
-                                            tiene paridad ni redundancia,
-                                            por lo que, si falla una de las unidades de almacenamiento, perderemos todos
-                                            los datos que había en su
-                                            interior, a menos que tengamos realizadas copias de seguridad externas. Este
-                                            arreglo realiza una
-                                            distribución equitativa de los bloques de datos entre los distintos discos
-                                            que lo componen. Es importante
-                                            señalar que el RAID 0 no era uno de los niveles RAID originales. El RAID 0
-                                            se usa habitualmente para
-                                            proporcionar un alto rendimiento de escritura ya que los datos se escriben
-                                            en dos o más discos de forma
-                                            paralela, aunque un mismo fichero solo está presente una vez en el conjunto.
-                                        </p>
-                                    </div>
-                                    <div class="col-md-6 d-flex justify-content-center align-items-center">
-                                        <img style="aspect-ratio: 220/286;" src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Raid0.png/220px-Raid0.png"
-                                            alt="">
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <p><strong>RAID 1: </strong>En este nivel de RAID, se hace una copia de cada
-                                            bloque guardado (Mirroring)
-                                            en los distintos discos que conforman la unidad lógica. Esto resulta útil
-                                            cuando queremos tener más
-                                            seguridad desaprovechando capacidad, ya que, si perdemos un disco, tenemos
-                                            el otro con la misma
-                                            información. </p>
-                                    </div>
-                                    <div class="col-md-6 d-flex justify-content-center align-items-center">
-                                        <img style="aspect-ratio: 461/600;" src="https://www.microgamma.com/tecnologia/i/461px-Raid1.png" alt="">
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <p><strong>RAID 3: </strong>Un RAID 3 usa "data striping", consiste en dividir
-                                            los datos a nivel de byte
-                                            en las distintas unidades que forma el RAID, excepto una, en donde se
-                                            almacena información de paridad
-                                            para poder unir estos datos al ser leídos. De esta forma cada byte
-                                            almacenado tiene un bit extra de
-                                            paridad para identificar errores y poder recuperar datos en caso de pérdida
-                                            de una unidad.</p>
-                                    </div>
-                                    <div class="col-md-6 d-flex justify-content-center align-items-center">
-                                        <img style="aspect-ratio: 220/137;" src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Raid3.png/220px-Raid3.png"
-                                            alt="">
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <p><strong>RAID 5: </strong>También llamado sistema distribuido con paridad, en
-                                            este nivel la información es
-                                            almacenada de forma dividida (striping) en bloques que se reparten entre los
-                                            discos duros que formen el
-                                            RAID. Pero además se genera un bloque de paridad para asegurar la
-                                            redundancia y poder reconstruir la
-                                            información en caso de que un disco duro se corrompa. Este bloque de paridad
-                                            se almacenará en una unidad
-                                            distinta a los bloques de datos que están implicados en el bloque calculado,
-                                            de esta forma la información
-                                            de paridad estará almacenada en un disco distinto a donde están los bloques
-                                            de datos implicados.</p>
-                                    </div>
-                                    <div class="col-md-6 d-flex justify-content-center align-items-center">
-                                        <img style="aspect-ratio: 460/286;" src="https://www.microgamma.com/tecnologia/i/460px-Raid5.png" alt="">
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <p><strong>RAID 01: </strong>Se le denomina espejo de divisiones. Consiste en un
-                                            nivel principal de tipo
-                                            RAID 1 que hace las funciones de replicar los datos que se encuentran en un
-                                            primer subnivel en un
-                                            segundo. A su vez existirá un subnivel RAID 0 que hará las funciones propias
-                                            de éste, es decir,
-                                            almacenar los datos de forma distribuida entre las unidades que en él se
-                                            encuentran. De esta forma
-                                            tenemos un nivel principal que hace la función de espejo y subniveles que
-                                            hacen la función de división
-                                            de datos. De esta forma si un disco duro falla, los datos estarán bien
-                                            guardados en el otro RAID 0 de
-                                            espejo.
-                                        </p>
-                                    </div>
-                                    <div class="col-md-6 d-flex justify-content-center align-items-center">
-                                        <img style="aspect-ratio: 770/677;" src="./img/raid01.jpg"
-                                            alt="">
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <p><strong>RAID 10: </strong>También llamada división de espejos. Tiene un nivel
-                                            principal de tipo 0 que
-                                            divide los datos almacenados entre los distintos subniveles. A su vez
-                                            tendremos varios subniveles de tipo
-                                            1 que se encargarán de replicar los datos en los discos duros que tengan en
-                                            su interior. En este caso la
-                                            tolerancia a fallos nos va a permitir que pueda fallar todos los discos de
-                                            un subnivel a excepción de
-                                            uno, y será necesario que al menos quede un disco sano en cada uno de los
-                                            subniveles para no perder
-                                            información. Este arreglo de discos, es muy rápida, nada más superada por el
-                                            RAID 0.
-                                        </p>
-                                    </div>
-                                    <div class="col-md-6 d-flex justify-content-center align-items-center">
-                                        <img style="aspect-ratio: 1157/1000;" src="./img/raid10.jpg"
-                                            alt="">
-                                    </div>
-                                </div>
-                            </div>                          
-                        </div>
+    <div id="contenedor-padre">
+        <div class="container mt-4 mb-4 bg-light rounded-3">
+            <section>
+                <div class="p-5 pb-4">
+                    <h1 class="display-4 text-center">Diagramas de configuracion RAID</h1>
+                    <hr class="mt-4">
+    
+                    <div class="d-flex justify-content-around flex-wrap">
+                        <button class="btn btn-secondary mt-4" id="myBtn" style="min-width: 156.78px;">Tipos de RAID</button>
+    
+                        <a href="index.html" class="btn btn-dark mt-4" style="min-width: 156.78px;">Pantalla principal</a>
                     </div>
-                </div>
-                <br>
-                <p class="text-center">A continuacion se le presenta un simulador sobre como esta configurado un RAID, segun el nivel
-                    seleccionado</p>
-            </div>
-        </section>
-        <section>
-            <div class="h-100 py-4 mb-2 bg-white border rounded-3">
-                <div id="area_simulador">
-                    <div id="Opciones de simulador" class="p-3">
-                        <div class="fs-3 mb-3">
-                            <i class="bi bi-1-square" style="font-size: 1.2em;"></i>
-                            Seleccione el nivel de RAID y el tipo de simulacion
-                        </div>
-
-                        <table class="table table-hover mt-4 mb-4">
-                            <tr>
-                                <td><strong>Tipo de raid:</strong></td>
-                                <td>
-                                    <select class="form-select" name="" id="select" onchange=limpiarRaid()>
-                                        <option value="0">raid 0</option>
-                                        <option value="1">raid 1</option>
-                                        <option value="3">raid 3</option>
-                                        <option value="5">raid 5</option>
-                                        <option value="10">raid 10</option>
-                                        <option value="01">raid 01</option>
-                                    </select>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td><strong>Tipo de simulación:</strong></td>
-                                <td>
-                                    <select class="form-select" name="" id="select3" onchange=cambioDeSimulacion()>
-                                        <option value="generica">generica</option>
-                                        <option value="binaria">binaria</option>
-                                    </select>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td><strong>Dato de prueba: </strong></td>
-                                <td>
-                                    <select class="form-select" name="" id="dato" disabled>
-                                        <option value="abrazo">abrazo</option>
-                                        <option value="bagres">bagres</option>
-                                        <option value="cabeza">cabeza</option>
-                                        <option value="deseos">deseos</option>
-                                        <option value="empeño">empeño</option>
-                                    </select>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td><strong>Valor en binario: </strong></td>
-                                <td>
-                                    <p id="ti2"></p>
-                                </td>
-                            </tr>
-                        </table>
-                        <div class="container mb-4">
-                            <div class="row align-items-center">
-                                <div class="col text-center">
-                                    <button class="btn bg-info text-white" onclick=ubicarCelda()>Agregar dato</button>
-                                </div>
+    
+                    <!-- The Modal -->
+                    <div id="myModal" class="modal">
+    
+                        <!-- Modal content -->
+                        <!-- Modal content -->
+                        <div class="modal-content">
+                            <div class="modal-header justify-content-between">
+                                <button type="button" class="close btn btn-none" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                  </button>
+                                <h2>Tipos de RAID</h2>
+                                <p></p>
+                            </div>
+                            <div class="modal-body">
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <p><strong>RAID 0: </strong>También llamado volumen dividido (Striping), no
+                                                tiene paridad ni redundancia,
+                                                por lo que, si falla una de las unidades de almacenamiento, perderemos todos
+                                                los datos que había en su
+                                                interior, a menos que tengamos realizadas copias de seguridad externas. Este
+                                                arreglo realiza una
+                                                distribución equitativa de los bloques de datos entre los distintos discos
+                                                que lo componen. Es importante
+                                                señalar que el RAID 0 no era uno de los niveles RAID originales. El RAID 0
+                                                se usa habitualmente para
+                                                proporcionar un alto rendimiento de escritura ya que los datos se escriben
+                                                en dos o más discos de forma
+                                                paralela, aunque un mismo fichero solo está presente una vez en el conjunto.
+                                            </p>
+                                        </div>
+                                        <div class="col-md-6 d-flex justify-content-center align-items-center">
+                                            <img style="aspect-ratio: 220/286;" src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Raid0.png/220px-Raid0.png"
+                                                alt="">
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <p><strong>RAID 1: </strong>En este nivel de RAID, se hace una copia de cada
+                                                bloque guardado (Mirroring)
+                                                en los distintos discos que conforman la unidad lógica. Esto resulta útil
+                                                cuando queremos tener más
+                                                seguridad desaprovechando capacidad, ya que, si perdemos un disco, tenemos
+                                                el otro con la misma
+                                                información. </p>
+                                        </div>
+                                        <div class="col-md-6 d-flex justify-content-center align-items-center">
+                                            <img style="aspect-ratio: 461/600;" src="https://www.microgamma.com/tecnologia/i/461px-Raid1.png" alt="">
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <p><strong>RAID 3: </strong>Un RAID 3 usa "data striping", consiste en dividir
+                                                los datos a nivel de byte
+                                                en las distintas unidades que forma el RAID, excepto una, en donde se
+                                                almacena información de paridad
+                                                para poder unir estos datos al ser leídos. De esta forma cada byte
+                                                almacenado tiene un bit extra de
+                                                paridad para identificar errores y poder recuperar datos en caso de pérdida
+                                                de una unidad.</p>
+                                        </div>
+                                        <div class="col-md-6 d-flex justify-content-center align-items-center">
+                                            <img style="aspect-ratio: 220/137;" src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Raid3.png/220px-Raid3.png"
+                                                alt="">
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <p><strong>RAID 5: </strong>También llamado sistema distribuido con paridad, en
+                                                este nivel la información es
+                                                almacenada de forma dividida (striping) en bloques que se reparten entre los
+                                                discos duros que formen el
+                                                RAID. Pero además se genera un bloque de paridad para asegurar la
+                                                redundancia y poder reconstruir la
+                                                información en caso de que un disco duro se corrompa. Este bloque de paridad
+                                                se almacenará en una unidad
+                                                distinta a los bloques de datos que están implicados en el bloque calculado,
+                                                de esta forma la información
+                                                de paridad estará almacenada en un disco distinto a donde están los bloques
+                                                de datos implicados.</p>
+                                        </div>
+                                        <div class="col-md-6 d-flex justify-content-center align-items-center">
+                                            <img style="aspect-ratio: 460/286;" src="https://www.microgamma.com/tecnologia/i/460px-Raid5.png" alt="">
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <p><strong>RAID 01: </strong>Se le denomina espejo de divisiones. Consiste en un
+                                                nivel principal de tipo
+                                                RAID 1 que hace las funciones de replicar los datos que se encuentran en un
+                                                primer subnivel en un
+                                                segundo. A su vez existirá un subnivel RAID 0 que hará las funciones propias
+                                                de éste, es decir,
+                                                almacenar los datos de forma distribuida entre las unidades que en él se
+                                                encuentran. De esta forma
+                                                tenemos un nivel principal que hace la función de espejo y subniveles que
+                                                hacen la función de división
+                                                de datos. De esta forma si un disco duro falla, los datos estarán bien
+                                                guardados en el otro RAID 0 de
+                                                espejo.
+                                            </p>
+                                        </div>
+                                        <div class="col-md-6 d-flex justify-content-center align-items-center">
+                                            <img style="aspect-ratio: 770/677;" src="./img/raid01.jpg"
+                                                alt="">
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <p><strong>RAID 10: </strong>También llamada división de espejos. Tiene un nivel
+                                                principal de tipo 0 que
+                                                divide los datos almacenados entre los distintos subniveles. A su vez
+                                                tendremos varios subniveles de tipo
+                                                1 que se encargarán de replicar los datos en los discos duros que tengan en
+                                                su interior. En este caso la
+                                                tolerancia a fallos nos va a permitir que pueda fallar todos los discos de
+                                                un subnivel a excepción de
+                                                uno, y será necesario que al menos quede un disco sano en cada uno de los
+                                                subniveles para no perder
+                                                información. Este arreglo de discos, es muy rápida, nada más superada por el
+                                                RAID 0.
+                                            </p>
+                                        </div>
+                                        <div class="col-md-6 d-flex justify-content-center align-items-center">
+                                            <img style="aspect-ratio: 1157/1000;" src="./img/raid10.jpg"
+                                                alt="">
+                                        </div>
+                                    </div>
+                                </div>                          
                             </div>
                         </div>
                     </div>
-
-                    <div class="px-md-5 my-4" id="simulacion">
-                        <table class="table table-hover px-5 text-center table-bordered" id="raid">
-                            <tr>
-                                <td class=""></td>
-                                <td class=""></td>
-                                <td class=""></td>
-                                <td class=""></td>
-                                <td class=""></td>
-                                <td class=""></td>
-                            </tr>
-                            <tr>
-                                <td class=""></td>
-                                <td class=""></td>
-                                <td class=""></td>
-                                <td class=""></td>
-                                <td class=""></td>
-                                <td class=""></td>
-                            </tr>
-                            <tr>
-                                <td class=""></td>
-                                <td class=""></td>
-                                <td class=""></td>
-                                <td class=""></td>
-                                <td class=""></td>
-                                <td class=""></td>
-                            </tr>
-                            <tr>
-                                <td class=""></td>
-                                <td class=""></td>
-                                <td class=""></td>
-                                <td class=""></td>
-                                <td class=""></td>
-                                <td class=""></td>
-                            </tr>
-                            <tr>
-                                <td class=""></td>
-                                <td class=""></td>
-                                <td class=""></td>
-                                <td class=""></td>
-                                <td class=""></td>
-                                <td class=""></td>
-                            </tr>
-                            <tr>
-                                <td class=""></td>
-                                <td class=""></td>
-                                <td class=""></td>
-                                <td class=""></td>
-                                <td class=""></td>
-                                <td class=""></td>
-                            </tr>
-                        </table>
-
-                        <div class="container mb-4">
-                            <div class="row justify-content-center">
-                                
-                                    <table class="table table-hover table-bordered w-auto" id="informacion">
-                                        <tr>
-                                            <td></td>
-                                            <td>Almacenamiento</td>
-        
-                                        </tr>
-                                        <tr>
-                                            <td class="table-warning"></td>
-                                            <td>Copia(Mirroring)</td>
-                                        </tr>
-                                        <tr>
-                                            <td class="table-info"></td>
-                                            <td>Paridad (XOR)</td>
-                                        </tr>
-                                    </table>                                
-                                
+                    <br>
+                    <p class="text-center">A continuacion se le presenta un simulador sobre como esta configurado un RAID, segun el nivel
+                        seleccionado</p>
+                </div>
+            </section>
+            <section>
+                <div class="h-100 py-4 mb-2 bg-white border rounded-3">
+                    <div id="area_simulador">
+                        <div id="Opciones de simulador" class="p-3">
+                            <div class="fs-3 mb-3">
+                                <i class="bi bi-1-square" style="font-size: 1.2em;"></i>
+                                Seleccione el nivel de RAID y el tipo de simulacion
+                            </div>
+    
+                            <table class="table table-hover mt-4 mb-4">
+                                <tr>
+                                    <td><strong>Tipo de raid:</strong></td>
+                                    <td>
+                                        <select class="form-select" name="" id="select" onchange=limpiarRaid()>
+                                            <option value="0">raid 0</option>
+                                            <option value="1">raid 1</option>
+                                            <option value="3">raid 3</option>
+                                            <option value="5">raid 5</option>
+                                            <option value="10">raid 10</option>
+                                            <option value="01">raid 01</option>
+                                        </select>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Tipo de simulación:</strong></td>
+                                    <td>
+                                        <select class="form-select" name="" id="select3" onchange=cambioDeSimulacion()>
+                                            <option value="generica">generica</option>
+                                            <option value="binaria">binaria</option>
+                                        </select>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Dato de prueba: </strong></td>
+                                    <td>
+                                        <select class="form-select" name="" id="dato" disabled>
+                                            <option value="abrazo">abrazo</option>
+                                            <option value="bagres">bagres</option>
+                                            <option value="cabeza">cabeza</option>
+                                            <option value="deseos">deseos</option>
+                                            <option value="empeño">empeño</option>
+                                        </select>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Valor en binario: </strong></td>
+                                    <td>
+                                        <p id="ti2"></p>
+                                    </td>
+                                </tr>
+                            </table>
+                            <div class="container mb-4">
+                                <div class="row align-items-center">
+                                    <div class="col text-center">
+                                        <button class="btn bg-info text-white" onclick=ubicarCelda()>Agregar dato</button>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                        
-                        
+    
+                        <div class="px-md-5 my-4" id="simulacion">
+                            <table class="table table-hover px-5 text-center table-bordered" id="raid">
+                                <tr>
+                                    <td class=""></td>
+                                    <td class=""></td>
+                                    <td class=""></td>
+                                    <td class=""></td>
+                                    <td class=""></td>
+                                    <td class=""></td>
+                                </tr>
+                                <tr>
+                                    <td class=""></td>
+                                    <td class=""></td>
+                                    <td class=""></td>
+                                    <td class=""></td>
+                                    <td class=""></td>
+                                    <td class=""></td>
+                                </tr>
+                                <tr>
+                                    <td class=""></td>
+                                    <td class=""></td>
+                                    <td class=""></td>
+                                    <td class=""></td>
+                                    <td class=""></td>
+                                    <td class=""></td>
+                                </tr>
+                                <tr>
+                                    <td class=""></td>
+                                    <td class=""></td>
+                                    <td class=""></td>
+                                    <td class=""></td>
+                                    <td class=""></td>
+                                    <td class=""></td>
+                                </tr>
+                                <tr>
+                                    <td class=""></td>
+                                    <td class=""></td>
+                                    <td class=""></td>
+                                    <td class=""></td>
+                                    <td class=""></td>
+                                    <td class=""></td>
+                                </tr>
+                                <tr>
+                                    <td class=""></td>
+                                    <td class=""></td>
+                                    <td class=""></td>
+                                    <td class=""></td>
+                                    <td class=""></td>
+                                    <td class=""></td>
+                                </tr>
+                            </table>
+    
+                            <div class="container mb-4">
+                                <div class="row justify-content-center">
+                                    
+                                        <table class="table table-hover table-bordered w-auto" id="informacion">
+                                            <tr>
+                                                <td></td>
+                                                <td>Almacenamiento</td>
+            
+                                            </tr>
+                                            <tr>
+                                                <td class="table-warning"></td>
+                                                <td>Copia(Mirroring)</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="table-info"></td>
+                                                <td>Paridad (XOR)</td>
+                                            </tr>
+                                        </table>                                
+                                    
+                                </div>
+                            </div>
+                            
+                            
+                        </div>
                     </div>
                 </div>
-            </div>
-        </section>
-        <br>
+            </section>
+            <br>
+        </div>
     </div>
 
     <footer class="d-flex flex-wrap justify-content-between align-items-center px-5 py-4 mt-4 border-top bg-dark">
