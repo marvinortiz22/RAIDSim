@@ -168,8 +168,8 @@
 /*ZONA DE RESULTADOS*/
 
 #resultados {
-    margin: 20px;
-    padding: 10px;
+    margin: 20px 0;
+    padding: 10px 0;
 }
 
 /*ZONA FOOTER*/
@@ -191,5 +191,11 @@ footer a:hover{
 @media (max-width: 768px){
     #lista_ranuras .hdd.online span {
         font-size: 2.25vw;
+    }
+}
+
+@media (min-width:1800px){
+    #lista_ranuras .hdd.online span {
+        font-size: medium;
     }
 }
