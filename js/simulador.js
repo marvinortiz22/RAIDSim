@@ -65,19 +65,18 @@ function quitar(posicion) {
 
 function cambioSelect(id) {
     let select = document.getElementById("" + id + "")
-    if (id == "select1"){
+    if (id == "select1")
         calcularCapacidad(1, select, capacidadRaid, seguridadRaid, sinUsarRaid, sumaInput, capacidadInput, seguridadInput, sinUsarInput)
-        let selectedIndex = select.selectedIndex;
-        tituloGraficos1.innerHTML=select.options[selectedIndex].text;
-    }
-    else{
+    else
         calcularCapacidad(2, select2, capacidadRaid2, seguridadRaid2, sinUsarRaid2, sumaInput2, capacidadInput2, seguridadInput2, sinUsarInput2)
-        let selectedIndex = select2.selectedIndex;
-        tituloGraficos2.innerHTML=select2.options[selectedIndex].text;
-    }
 }
 
 function calcularCapacidad(k, select, capacidadRaid, seguridadRaid, sinUsarRaid, sumaInput, capacidadInput, seguridadInput, sinUsarInput) {
+    let selectedIndex = select.selectedIndex;
+    if(select.getAttribute("id")=="select1")
+        tituloGraficos1.innerHTML=select.options[selectedIndex].text;
+    else
+        tituloGraficos2.innerHTML=select.options[selectedIndex].text;
     let discos = document.getElementsByClassName("disco hdd online")
     if (EsValido(select)) {
         calcularSuma()
@@ -121,7 +120,7 @@ function calcularCapacidad(k, select, capacidadRaid, seguridadRaid, sinUsarRaid,
             }
             else {
                 crearChartPastel(1, capacidadRaid, seguridadRaid, sinUsarRaid)
-                crearChartBarras(3, capacidadRaid, seguridadRaid, sinUsarRaid)
+                //crearChartBarras(3, capacidadRaid, seguridadRaid, sinUsarRaid)
             }
         }
         else {
@@ -131,14 +130,13 @@ function calcularCapacidad(k, select, capacidadRaid, seguridadRaid, sinUsarRaid,
             }
             else {
                 crearChartPastel(2, capacidadRaid, seguridadRaid, sinUsarRaid)
-                crearChartBarras(4, capacidadRaid, seguridadRaid, sinUsarRaid)
+                //crearChartBarras(4, capacidadRaid, seguridadRaid, sinUsarRaid)
             }
 
         }
 
     }
     else {
-        //Aviso(mensaje)
         if (k == 1){
             graficoDiv.innerHTML = "<p id='parrafo'>" + mensaje + "</p>"
             graficoDiv3.innerHTML = "<span id='parrafo'></span>"
@@ -206,13 +204,13 @@ function crearChartBarras(k, capacidadRaid, seguridadRaid, sinUsarRaid) {
     const data = {
         labels: labels,
         datasets: [{
-            label: 'Capacidad (GB)',
+            label: 'Almacenamiento (GB)',
             data: [capacidadRaid],
             backgroundColor: 'green',
             borderColor: 'rgb(255, 99, 132)',
         },
         {
-            label: 'Copia de seguridad (GB)',
+            label: 'Integridad (GB)',
             data: [seguridadRaid],
             backgroundColor: 'yellow',
             borderColor: 'rgb(255, 99, 132)',
@@ -235,20 +233,21 @@ function crearChartBarras(k, capacidadRaid, seguridadRaid, sinUsarRaid) {
 
                 },
                 datalabels: {
-                    formatter: (value, ctx) => {
+                    formatter: ((value, ctx) => {
+                        if (value === 0) {
+                            return ''
+                        }
                         let sum = 0;
-                        let dataArr = ctx.chart.data.datasets[0].data;
+                        console.log()
+                        let dataArr = ctx.chart.data.datasets;
                         dataArr.map(data => {
-                            sum += data;
+                            console.log(data.data[0])
+                            sum += data.data[0];
                         });
                         let percentage = (value * 100 / sum).toFixed(2) + "%";
                         return percentage;
-                    },
-                    color: '#fff',
-                    font: {
-                        weight: 'bold',
-                        size: '16'
-                    }
+                    }),
+                    color: '#000',
                 },
                 legend: {
                     display: true,
@@ -271,7 +270,7 @@ function crearChartBarras(k, capacidadRaid, seguridadRaid, sinUsarRaid) {
 
 
         },
-
+        plugins:[ChartDataLabels]
     }
 
     const myChart = new Chart(
@@ -290,8 +289,8 @@ function crearChartPastel(k, capacidadRaid, seguridadRaid, sinUsarRaid) {
 
     const data = {
         labels: [
-            'Capacidad',
-            'Seguridad',
+            'Almacenamiento',
+            'Integridad',
             'Sin usar'
         ],
         datasets: [{
@@ -311,13 +310,41 @@ function crearChartPastel(k, capacidadRaid, seguridadRaid, sinUsarRaid) {
         data: data,
         options: {
             responsive: true,
-            maintainAspectRatio: false
-        }     
+            maintainAspectRatio: false,
+            plugins: {
+                title: {
+                    display: true,
+                },
+                datalabels: {
+                    formatter: ((value, ctx)=> {
+                        if (value === 0) {
+                            return ''
+                        }
+                        let sum = 0;
+                        let dataArr = ctx.chart.data.datasets[0].data;
+                        dataArr.map(data => {
+                            sum += data;
+                        });
+                        let percentage = (value * 100 / sum).toFixed(2) + "%";
+                        return percentage;
+                    }),
+                    color: '#000',
+                },
+                legend: {
+                    display: true,
+                    labels: {
+                        color: "black"
+                    }
+                },
+            },
+        },
+        plugins:[ChartDataLabels],
+          
     };
 
     const myChart = new Chart(
         document.getElementById("myChart" + k + ""),
-        config
+        config,
     );
 
 
@@ -397,3 +424,4 @@ window.onclick = function(event) {
     modal.style.display = "none";
   }
 }
+
