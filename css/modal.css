@@ -56,5 +56,9 @@
     #myModal img{
       width: 100%;
       height: auto;
+      max-height: none;
+    }
+    .img-raid0, .img-raid1{
+      width: 50%!important;
     }
   }
