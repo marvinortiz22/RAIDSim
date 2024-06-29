@@ -184,23 +184,23 @@
                         </div>
                     </div>
                     <br>
-                    <p class="text-center">A continuacion se le presenta un simulador sobre como esta configurado un RAID, segun el nivel
-                        seleccionado</p>
+                    <p class="text-center">Simulación que muestra como se destribuyen los datos en cada tipo de RAID</p>
                 </div>
             </section>
             <section>
                 <div class="h-100 py-4 mb-2 bg-white border rounded-3">
                     <div id="area_simulador">
-                        <div id="Opciones de simulador" class="p-3">
+                        <div id="Opciones de simulador">
                             <div class="fs-3 mb-3">
                                 <i class="bi bi-1-square" style="font-size: 1.2em;"></i>
                                 Seleccione el nivel de RAID y el tipo de simulacion
                             </div>
-    
-                            <table class="table table-hover mt-4 mb-4">
-                                <tr>
-                                    <td><strong>Tipo de raid:</strong></td>
-                                    <td>
+                            <div class="container mt-4 mb-4">
+                                <div class="row">
+                                    <div class="col-6 col-sm-6">
+                                        <strong>Tipo de raid:</strong>
+                                    </div>
+                                    <div class="col-6 col-sm-6">
                                         <select class="form-select" name="" id="select" onchange=limpiarRaid()>
                                             <option value="0">raid 0</option>
                                             <option value="1">raid 1</option>
@@ -209,20 +209,26 @@
                                             <option value="10">raid 10</option>
                                             <option value="01">raid 01</option>
                                         </select>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td><strong>Tipo de simulación:</strong></td>
-                                    <td>
+                                    </div>
+                                </div>
+                                <hr>
+                                <div class="row">
+                                    <div class="col-6 col-sm-6">
+                                        <strong>Tipo de simulación:</strong>
+                                    </div>
+                                    <div class="col-6 col-sm-6">
                                         <select class="form-select" name="" id="select3" onchange=cambioDeSimulacion()>
                                             <option value="generica">generica</option>
                                             <option value="binaria">binaria</option>
                                         </select>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td><strong>Dato de prueba: </strong></td>
-                                    <td>
+                                    </div>
+                                </div>
+                                <hr>
+                                <div class="row">
+                                    <div class="col-6 col-sm-6">
+                                        <strong>Dato de prueba: </strong>
+                                    </div>
+                                    <div class="col-6 col-sm-6">
                                         <select class="form-select" name="" id="dato" disabled>
                                             <option value="abrazo">abrazo</option>
                                             <option value="bagres">bagres</option>
@@ -230,15 +236,22 @@
                                             <option value="deseos">deseos</option>
                                             <option value="empeño">empeño</option>
                                         </select>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td><strong>Valor en binario: </strong></td>
-                                    <td>
+                                    </div>
+                                </div>
+                                <hr>
+                                <div class="row" style="min-height: 40px;">
+                                    <div class="col-6 col-sm-6">
+                                        <strong>Valor en binario: </strong>
+                                    </div>
+                                    <div class="col-6 col-sm-6">
                                         <p id="ti2"></p>
-                                    </td>
-                                </tr>
-                            </table>
+                                    </div>
+                                </div>
+                                <hr>
+                            </div>
+                            
+    
+                            
                             <div class="container mb-4">
                                 <div class="row align-items-center">
                                     <div class="col text-center">

@@ -370,13 +370,13 @@ function EsValido(select) {
             case '10':
                 if (discos.length % 2 == 1 || discos.length < 4) {
                     esvalido = false
-                    mensaje = "la cantidad de discos para este raid debe ser par y mayor o igual 4"
+                    mensaje = "La cantidad de discos para este raid debe ser par y mayor o igual 4"
                 }
                 break
             case '01':
                 if (discos.length % 2 == 1 || discos.length < 4) {
                     esvalido = false
-                    mensaje = "la cantidad de discos para este raid debe ser par y mayor o igual 4"
+                    mensaje = "La cantidad de discos para este raid debe ser par y mayor o igual 4"
                 }
                 break
 
